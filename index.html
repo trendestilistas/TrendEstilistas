@@ -11,15 +11,17 @@
     
     <style>
         :root {
-            --bg-color: #121212;
-            --card-bg: #1e1e1e;
-            --text-color: #e0e0e0;
-            --text-muted: #a0a0a0;
-            --accent-yellow: #ffeb3b; /* Vibrant Yellow Accent */
-            --accent-hover: #fdd835;
-            --white: #ffffff;
+            --bg-color: #fcfcfc; /* Light Clean Background */
+            --card-bg: #ffffff;  /* Pure White Cards */
+            --text-color: #2b2b2b; /* Crisp Charcoal Text */
+            --text-muted: #666666;
+            --accent-yellow: #fbc02d; /* Elegant Warm Yellow Accent */
+            --accent-hover: #f57f17;
+            --header-bg: #121212; /* Dark header so white logo pops */
             --font-heading: 'Playfair Display', serif;
             --font-body: 'Montserrat', sans-serif;
+            --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
+            --border-light: #eaeaea;
         }
 
         * {
@@ -37,15 +39,15 @@
 
         /* Header & Navigation */
         header {
-            background-color: rgba(18, 18, 18, 0.95);
+            background-color: var(--header-bg);
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid #2a2a2a;
             padding: 0.8rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         .logo-img {
@@ -60,7 +62,7 @@
         }
 
         nav a {
-            color: var(--text-color);
+            color: #ffffff;
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 500;
@@ -88,11 +90,11 @@
             color: #000;
         }
 
-        /* Hero Banner with Salon Background */
+        /* Hero Banner with Bright/Clean Overlay */
         .hero {
             position: relative;
-            background: linear-gradient(rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.78)), url('salon.jpg') center/cover no-repeat;
-            min-height: 85vh;
+            background: linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)), url('salon.jpg') center/cover no-repeat;
+            min-height: 80vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -107,23 +109,23 @@
         .hero-content h1 {
             font-family: var(--font-heading);
             font-size: 3.2rem;
-            color: var(--white);
+            color: #111111;
             margin-bottom: 1.5rem;
             line-height: 1.2;
         }
 
         .story-text {
             font-size: 1.15rem;
-            color: #e0e0e0;
+            color: #333333;
             margin-bottom: 2.2rem;
-            font-weight: 300;
+            font-weight: 400;
             line-height: 1.8;
         }
 
         .btn-yellow {
             display: inline-block;
             background-color: var(--accent-yellow);
-            color: #000;
+            color: #111111;
             padding: 0.9rem 2.2rem;
             font-weight: 700;
             text-decoration: none;
@@ -131,10 +133,12 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 12px rgba(251, 192, 45, 0.3);
         }
 
         .btn-yellow:hover {
             background-color: var(--accent-hover);
+            color: #ffffff;
             transform: translateY(-2px);
         }
 
@@ -150,7 +154,7 @@
             font-size: 2.2rem;
             text-align: center;
             margin-bottom: 3rem;
-            color: var(--white);
+            color: #111111;
         }
 
         .section-title::after {
@@ -171,13 +175,15 @@
 
         .card {
             background-color: var(--card-bg);
-            border: 1px solid #2d2d2d;
+            border: 1px solid var(--border-light);
             border-radius: 8px;
             overflow: hidden;
-            transition: border-color 0.3s;
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.3s, border-color 0.3s;
         }
 
         .card:hover {
+            transform: translateY(-4px);
             border-color: var(--accent-yellow);
         }
 
@@ -194,15 +200,15 @@
         .card-body h3 {
             font-family: var(--font-heading);
             font-size: 1.5rem;
-            color: var(--accent-yellow);
-            margin-bottom: 1rem;
+            color: #111111;
+            margin-bottom: 0.8rem;
         }
 
         /* Price List Section */
         .price-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
+            gap: 1.2rem;
         }
 
         .price-card {
@@ -213,16 +219,20 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            border-top: 1px solid var(--border-light);
+            border-right: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
         }
 
         .price-card .service-name {
-            font-weight: 500;
-            color: var(--white);
+            font-weight: 600;
+            color: #222222;
         }
 
         .price-card .service-price {
             font-weight: 700;
-            color: var(--accent-yellow);
+            color: #111111;
             font-size: 1.1rem;
         }
 
@@ -237,8 +247,9 @@
         .team-card {
             background-color: var(--card-bg);
             border-radius: 8px;
-            padding: 1.2rem;
-            border: 1px solid #2d2d2d;
+            padding: 1.5rem 1.2rem;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-soft);
             transition: transform 0.3s;
         }
 
@@ -253,30 +264,32 @@
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 1rem;
-            border: 2px solid var(--accent-yellow);
+            border: 3px solid var(--accent-yellow);
         }
 
         .team-card h4 {
             font-family: var(--font-heading);
-            font-size: 1.1rem;
-            color: var(--white);
+            font-size: 1.15rem;
+            color: #111111;
         }
 
         .team-card p {
             font-size: 0.85rem;
             color: var(--text-muted);
             margin-top: 0.3rem;
+            font-weight: 500;
         }
 
         /* Accent Sections with Customer / General Photos */
         .accent-banner {
-            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('general1.jpg') center/cover fixed;
+            background: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)), url('general1.jpg') center/cover fixed;
             padding: 4rem 1.5rem;
-            text-align: center;
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
         }
 
         .booking-banner {
-            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('customer1.jpg') center/cover fixed;
+            background: linear-gradient(rgba(255, 255, 255, 0.90), rgba(255, 255, 255, 0.90)), url('customer1.jpg') center/cover fixed;
             padding: 4rem 1.5rem;
         }
 
@@ -288,12 +301,13 @@
             text-align: center;
             max-width: 900px;
             margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
         }
 
         /* Footer & Social */
         footer {
-            background-color: #0a0a0a;
-            border-top: 1px solid #2a2a2a;
+            background-color: #111111;
+            color: #e0e0e0;
             padding: 4rem 1.5rem 2rem;
         }
 
@@ -338,7 +352,7 @@
 
         .copyright {
             text-align: center;
-            color: var(--text-muted);
+            color: #888888;
             font-size: 0.85rem;
             border-top: 1px solid #222;
             padding-top: 2rem;
