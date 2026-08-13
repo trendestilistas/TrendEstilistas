@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trend Estilistas | High-End Hair Salon & Head Spa in La Nucía</title>
+    <title>Trend Estilistas | Peluquería de Lujo y Head Spa en La Nucía</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,29 +42,26 @@
             top: 0;
             z-index: 1000;
             border-bottom: 1px solid #2a2a2a;
-            padding: 1rem 2rem;
+            padding: 0.8rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .logo {
-            font-family: var(--font-heading);
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--white);
-            letter-spacing: 2px;
-            text-transform: uppercase;
+        .logo-img {
+            max-height: 45px;
+            width: auto;
         }
 
-        .logo span {
-            color: var(--accent-yellow);
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
         }
 
         nav a {
             color: var(--text-color);
             text-decoration: none;
-            margin-left: 1.5rem;
             font-size: 0.9rem;
             font-weight: 500;
             transition: color 0.3s;
@@ -74,42 +71,60 @@
             color: var(--accent-yellow);
         }
 
-        /* Hero Banner */
+        .lang-switch {
+            background: transparent;
+            border: 1px solid var(--accent-yellow);
+            color: var(--accent-yellow);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
+
+        .lang-switch:hover {
+            background: var(--accent-yellow);
+            color: #000;
+        }
+
+        /* Hero Banner with Salon Background */
         .hero {
             position: relative;
-            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('salon-hero.jpg') center/cover no-repeat;
-            min-height: 80vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.78)), url('salon.jpg') center/cover no-repeat;
+            min-height: 85vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 3rem 1.5rem;
+            padding: 4rem 1.5rem;
         }
 
         .hero-content {
-            max-width: 850px;
+            max-width: 900px;
         }
 
         .hero-content h1 {
             font-family: var(--font-heading);
-            font-size: 3rem;
+            font-size: 3.2rem;
             color: var(--white);
             margin-bottom: 1.5rem;
             line-height: 1.2;
         }
 
         .story-text {
-            font-size: 1.1rem;
-            color: #d1d1d1;
-            margin-bottom: 2rem;
+            font-size: 1.15rem;
+            color: #e0e0e0;
+            margin-bottom: 2.2rem;
             font-weight: 300;
+            line-height: 1.8;
         }
 
         .btn-yellow {
             display: inline-block;
             background-color: var(--accent-yellow);
             color: #000;
-            padding: 0.85rem 2rem;
+            padding: 0.9rem 2.2rem;
             font-weight: 700;
             text-decoration: none;
             border-radius: 4px;
@@ -147,12 +162,11 @@
             margin: 0.8rem auto 0;
         }
 
-        /* Features Grid */
+        /* Grid Layouts */
         .grid-2 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2.5rem;
-            align-items: center;
         }
 
         .card {
@@ -169,7 +183,7 @@
 
         .card img {
             width: 100%;
-            height: 250px;
+            height: 260px;
             object-fit: cover;
         }
 
@@ -184,16 +198,99 @@
             margin-bottom: 1rem;
         }
 
-        /* Booksy Container */
+        /* Price List Section */
+        .price-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .price-card {
+            background-color: var(--card-bg);
+            border-left: 4px solid var(--accent-yellow);
+            padding: 1.2rem 1.5rem;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price-card .service-name {
+            font-weight: 500;
+            color: var(--white);
+        }
+
+        .price-card .service-price {
+            font-weight: 700;
+            color: var(--accent-yellow);
+            font-size: 1.1rem;
+        }
+
+        /* Meet the Team Gallery */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1.8rem;
+            text-align: center;
+        }
+
+        .team-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 1.2rem;
+            border: 1px solid #2d2d2d;
+            transition: transform 0.3s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-yellow);
+        }
+
+        .team-card img {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 2px solid var(--accent-yellow);
+        }
+
+        .team-card h4 {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            color: var(--white);
+        }
+
+        .team-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 0.3rem;
+        }
+
+        /* Accent Sections with Customer / General Photos */
+        .accent-banner {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('general1.jpg') center/cover fixed;
+            padding: 4rem 1.5rem;
+            text-align: center;
+        }
+
+        .booking-banner {
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('customer1.jpg') center/cover fixed;
+            padding: 4rem 1.5rem;
+        }
+
         .booking-container {
             background-color: var(--card-bg);
             padding: 2.5rem;
             border-radius: 8px;
             border-top: 4px solid var(--accent-yellow);
             text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
-        /* Contact & Social Footer */
+        /* Footer & Social */
         footer {
             background-color: #0a0a0a;
             border-top: 1px solid #2a2a2a;
@@ -251,7 +348,7 @@
             .hero-content h1 { font-size: 2.2rem; }
             .story-text { font-size: 1rem; }
             header { flex-direction: column; gap: 1rem; }
-            nav a { margin: 0 0.75rem; }
+            nav { flex-wrap: wrap; justify-content: center; }
         }
     </style>
 </head>
@@ -259,95 +356,206 @@
 
     <!-- Header -->
     <header>
-        <div class="logo">Trend <span>Estilistas</span></div>
+        <img src="trend_logo_white.png" alt="Trend Estilistas" class="logo-img">
         <nav>
-            <a href="#about">Our Story</a>
-            <a href="#services">Services</a>
-            <a href="#booking">Book Online</a>
-            <a href="#contact">Contact</a>
+            <a href="#about" data-es="Nuestra Historia" data-en="Our Story">Nuestra Historia</a>
+            <a href="#services" data-es="Experiencias" data-en="Experiences">Experiencias</a>
+            <a href="#prices" data-es="Precios" data-en="Prices">Precios</a>
+            <a href="#team" data-es="Equipo" data-en="Team">Equipo</a>
+            <a href="#booking" data-es="Reservar" data-en="Book Now">Reservar</a>
+            <button class="lang-switch" id="langBtn" onclick="toggleLanguage()">EN</button>
         </nav>
     </header>
 
-    <!-- Hero Banner with Main Story Header -->
+    <!-- Hero Banner -->
     <section class="hero" id="about">
         <div class="hero-content">
             <h1>Trend Estilistas</h1>
-            <p class="story-text">
-                Envisioning new trends from the capitals of the worlds offered to our local community at an affordable price, yet never lowering the quality. Everyone deserves to be able to have beautiful hair. Trend Estilistas began in Albir in 2017, driven by Jose Antonio's passion for international city-quality hair services. Now expanded to La Nucia, redefining luxury, adding a Japanese Head Spa and creating a 360° salon for all your needs.
+            <p class="story-text" id="heroStory">
+                Visionando nuevas tendencias de las capitales del mundo ofrecidas a nuestra comunidad local a un precio accesible, sin bajar nunca la calidad. Todo el mundo merece lucir un cabello espectacular. Trend Estilistas nació en El Albir en 2017, impulsado por la pasión de José Antonio por ofrecer servicios de peluquería con el estándar de calidad de las grandes urbes internacionales. Ahora nos expandimos a La Nucía para redefinir el concepto de lujo, incorporando un Head Spa Japonés y creando un salón 360° para cubrir todas sus necesidades.
             </p>
-            <a href="#booking" class="btn-yellow">Book Your Experience</a>
+            <a href="#booking" class="btn-yellow" data-es="Reservar Cita" data-en="Book Your Experience">Reservar Cita</a>
         </div>
     </section>
 
-    <!-- Signature Innovations Section -->
+    <!-- Signature Experiences -->
     <section class="section" id="services">
-        <h2 class="section-title">Exclusive Salon Experiences</h2>
+        <h2 class="section-title" data-es="Experiencias Exclusivas" data-en="Exclusive Experiences">Experiencias Exclusivas</h2>
         <div class="grid-2">
             
             <div class="card">
-                <img src="head-spa.jpg" alt="Japanese Head Spa at Trend Estilistas">
+                <img src="headspa1.jpg" alt="Japanese Head Spa at Trend Estilistas">
                 <div class="card-body">
-                    <h3>Japanese Head Spa</h3>
-                    <p>Redefining scalp care and relaxation. Our dedicated Head Spa combines deep holistic cleansing, therapeutic massage, and scalp treatments to promote hair health and total wellness.</p>
+                    <h3 data-es="Head Spa Japonés" data-en="Japanese Head Spa">Head Spa Japonés</h3>
+                    <p data-es="Redefiniendo el cuidado del cuero cabelludo y la relajación. Nuestro Head Spa dedicado combina limpieza holística profunda, masaje terapéutico y tratamientos para promover la salud capilar y el bienestar total." 
+                       data-en="Redefining scalp care and relaxation. Our dedicated Head Spa combines deep holistic cleansing, therapeutic massage, and scalp treatments to promote hair health and total wellness.">
+                       Redefiniendo el cuidado del cuero cabelludo y la relajación. Nuestro Head Spa dedicado combina limpieza holística profunda, masaje terapéutico y tratamientos para promover la salud capilar y el bienestar total.
+                    </p>
                 </div>
             </div>
 
             <div class="card">
-                <img src="hair-scanning.jpg" alt="Microscopic Hair Diagnostics">
+                <img src="scanner.jpg" alt="Microscopic Hair Diagnostics">
                 <div class="card-body">
-                    <h3>Advanced Hair Diagnostic Scanning</h3>
-                    <p>Utilizing the latest microscopic technology, we scan deep inside your hair structure. This allows us to analyze health at a cellular level and prescribe completely bespoke treatments.</p>
+                    <h3 data-es="Escáner Diagnóstico Capilar" data-en="Hair Diagnostic Scanner">Escáner Diagnóstico Capilar</h3>
+                    <p data-es="Utilizando la última tecnología microscópica, escaneamos el interior de la estructura de su cabello. Esto nos permite analizar la salud a nivel celular y prescribir tratamientos totalmente personalizados."
+                       data-en="Utilizing the latest microscopic technology, we scan deep inside your hair structure. This allows us to analyze health at a cellular level and prescribe completely bespoke treatments.">
+                       Utilizando la última tecnología microscópica, escaneamos el interior de la estructura de su cabello. Esto nos permite analizar la salud a nivel celular y prescribir tratamientos totalmente personalizados.
+                    </p>
                 </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Popular Services & Prices -->
+    <div class="accent-banner">
+        <section class="section" id="prices" style="padding: 0;">
+            <h2 class="section-title" data-es="Servicios y Tarifas" data-en="Services & Pricing">Servicios y Tarifas</h2>
+            <div class="price-grid">
+                <div class="price-card"><span class="service-name">Corte de pelo hombre</span><span class="service-price">15,00 €</span></div>
+                <div class="price-card"><span class="service-name">Corte de pelo mujer completo</span><span class="service-price">28,00 €</span></div>
+                <div class="price-card"><span class="service-name">Peinado</span><span class="service-price">desde 22,00 €</span></div>
+                <div class="price-card"><span class="service-name">Color completo</span><span class="service-price">desde 38,00 €</span></div>
+                <div class="price-card"><span class="service-name">Balayage</span><span class="service-price">desde 130,00 €</span></div>
+                <div class="price-card"><span class="service-name">Lavado + secado express</span><span class="service-price">10,00 €</span></div>
+                <div class="price-card"><span class="service-name">Tratamiento Olaplex</span><span class="service-price">desde 40,00 €</span></div>
+                <div class="price-card"><span class="service-name">Tratamiento Fibre Clinix</span><span class="service-price">40,00 €</span></div>
+                <div class="price-card"><span class="service-name">Reconstrucción de Davines</span><span class="service-price">60,00 €</span></div>
+                <div class="price-card"><span class="service-name">Tratamiento express</span><span class="service-price">12,00 €</span></div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Meet the Team -->
+    <section class="section" id="team">
+        <h2 class="section-title" data-es="Conozca a Nuestro Equipo" data-en="Meet Our Team">Conozca a Nuestro Equipo</h2>
+        <div class="team-grid">
+            
+            <div class="team-card">
+                <img src="jose.jpg" alt="Jose Antonio">
+                <h4>Jose Antonio</h4>
+                <p>CEO & Head Stylist</p>
+            </div>
+
+            <div class="team-card">
+                <img src="martanew.jpeg" alt="Marta">
+                <h4>Marta</h4>
+                <p data-es="Encargada & Estilista" data-en="Manager & Stylist">Encargada & Estilista</p>
+            </div>
+
+            <div class="team-card">
+                <img src="marinew.jpeg" alt="Mari Carmen">
+                <h4>Mari Carmen</h4>
+                <p data-es="Head Spa Specialist" data-en="Head Spa Specialist">Head Spa Specialist</p>
+            </div>
+
+            <div class="team-card">
+                <img src="julianew.jpeg" alt="Julia">
+                <h4>Julia</h4>
+                <p data-es="Estilista" data-en="Stylist">Estilista</p>
+            </div>
+
+            <div class="team-card">
+                <img src="fatima.jpg" alt="Fátima">
+                <h4>Fátima</h4>
+                <p data-es="Estilista" data-en="Stylist">Estilista</p>
+            </div>
+
+            <div class="team-card">
+                <img src="cristannew.jpeg" alt="Christian">
+                <h4>Christian</h4>
+                <p data-es="Estilista" data-en="Stylist">Estilista</p>
             </div>
 
         </div>
     </section>
 
     <!-- Booksy Online Booking Section -->
-    <section class="section" id="booking">
-        <h2 class="section-title">Book Your Appointment</h2>
-        <div class="booking-container">
-            <p style="margin-bottom: 1.5rem;">Select your service, date, and preferred stylist via our direct online booking portal below:</p>
-            
-            <!-- Booksy Widget Integration -->
-            <script type="text/javascript" src="https://booksy.com/widget/code.js?id=3454&country=es&lang=en"></script>
-        </div>
-    </section>
+    <div class="booking-banner">
+        <section class="section" id="booking" style="padding: 0;">
+            <h2 class="section-title" data-es="Reserva tu Cita" data-en="Book Your Appointment">Reserva tu Cita</h2>
+            <div class="booking-container">
+                <p style="margin-bottom: 1.5rem;" data-es="Seleccione su servicio, fecha y estilista a través de nuestro portal de reservas en línea:" data-en="Select your service, date, and stylist via our online booking portal below:">
+                    Seleccione su servicio, fecha y estilista a través de nuestro portal de reservas en línea:
+                </p>
+                
+                <!-- Booksy Widget Integration -->
+                <script type="text/javascript" src="https://booksy.com/widget/code.js?id=3454&country=es&lang=en"></script>
+            </div>
+        </section>
+    </div>
 
     <!-- Contact & Footer -->
     <footer id="contact">
         <div class="footer-grid">
             
             <div class="footer-col">
-                <h4>Visit Us</h4>
+                <h4 data-es="Visítenos" data-en="Visit Us">Visítenos</h4>
                 <p>Trend Estilistas</p>
                 <p>Urb Balconet, Passeig Pla de Garaita 25</p>
                 <p>Local 13 y 14, 03530 La Nucía, Alicante</p>
             </div>
 
             <div class="footer-col">
-                <h4>Hours & Contact</h4>
-                <p><strong>Mon – Fri:</strong> 09:30 – 19:00</p>
-                <p><strong>Saturday:</strong> 09:30 – 14:30</p>
-                <p><strong>Sunday:</strong> Closed</p>
-                <p style="margin-top: 0.8rem;">Phone/WhatsApp: +34 865 94 59 56</p>
+                <h4 data-es="Horarios y Contacto" data-en="Hours & Contact">Horarios y Contacto</h4>
+                <p><strong>Lunes – Viernes:</strong> 09:30 – 19:00</p>
+                <p><strong>Sábado:</strong> 09:30 – 14:30</p>
+                <p><strong>Domingo:</strong> Cerrado</p>
+                <p style="margin-top: 0.8rem;">Tel / WhatsApp: +34 865 94 59 56</p>
             </div>
 
             <div class="footer-col">
-                <h4>Connect With Us</h4>
+                <h4 data-es="Síganos" data-en="Follow Us">Síganos</h4>
                 <div class="social-buttons">
-                    <a href="https://wa.me/34865945956" target="_blank" class="btn-social btn-whatsapp">Chat on WhatsApp</a>
-                    <a href="https://www.instagram.com/trend_estilistas/" target="_blank" class="btn-social btn-instagram">Follow on Instagram</a>
-                    <a href="https://www.facebook.com/profile.php?id=100063550147983" target="_blank" class="btn-social btn-facebook">Find us on Facebook</a>
+                    <a href="https://wa.me/34865945956" target="_blank" class="btn-social btn-whatsapp">WhatsApp</a>
+                    <a href="https://www.instagram.com/trend_estilistas/" target="_blank" class="btn-social btn-instagram">Instagram</a>
+                    <a href="https://www.facebook.com/profile.php?id=100063550147983" target="_blank" class="btn-social btn-facebook">Facebook</a>
                 </div>
             </div>
 
         </div>
 
         <div class="copyright">
-            &copy; 2026 Trend Estilistas. All rights reserved.
+            &copy; 2026 Trend Estilistas. Todos los derechos reservados.
         </div>
     </footer>
+
+    <!-- Interactive ES/EN Language Switching Script -->
+    <script>
+        let currentLang = 'es';
+
+        const enStory = "Envisioning new trends from the capitals of the world offered to our local community at an affordable price, yet never lowering the quality. Everyone deserves to be able to have beautiful hair. Trend Estilistas began in Albir in 2017, driven by Jose Antonio's passion for international city-quality hair services. Now expanded to La Nucia, redefining luxury, adding a Japanese Head Spa and creating a 360° salon for all your needs.";
+        const esStory = "Visionando nuevas tendencias de las capitales del mundo ofrecidas a nuestra comunidad local a un precio accesible, sin bajar nunca la calidad. Todo el mundo merece lucir un cabello espectacular. Trend Estilistas nació en El Albir en 2017, impulsado por la pasión de José Antonio por ofrecer servicios de peluquería con el estándar de calidad de las grandes urbes internacionales. Ahora nos expandimos a La Nucía para redefinir el concepto de lujo, incorporando un Head Spa Japonés y creando un salón 360° para cubrir todas sus necesidades.";
+
+        function toggleLanguage() {
+            const btn = document.getElementById('langBtn');
+            const elements = document.querySelectorAll('[data-es]');
+            const storyText = document.getElementById('heroStory');
+
+            if (currentLang === 'es') {
+                currentLang = 'en';
+                btn.textContent = 'ES';
+                storyText.textContent = enStory;
+
+                elements.forEach(el => {
+                    if (el.getAttribute('data-en')) {
+                        el.textContent = el.getAttribute('data-en');
+                    }
+                });
+            } else {
+                currentLang = 'es';
+                btn.textContent = 'EN';
+                storyText.textContent = esStory;
+
+                elements.forEach(el => {
+                    if (el.getAttribute('data-es')) {
+                        el.textContent = el.getAttribute('data-es');
+                    }
+                });
+            }
+        }
+    </script>
 
 </body>
 </html>
