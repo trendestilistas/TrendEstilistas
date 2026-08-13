@@ -11,13 +11,13 @@
     
     <style>
         :root {
-            --bg-color: #fcfcfc; /* Light Clean Background */
-            --card-bg: #ffffff;  /* Pure White Cards */
-            --text-color: #2b2b2b; /* Crisp Charcoal Text */
+            --bg-color: #fcfcfc;
+            --card-bg: #ffffff;
+            --text-color: #2b2b2b;
             --text-muted: #666666;
-            --accent-yellow: #fbc02d; /* Elegant Warm Yellow Accent */
+            --accent-yellow: #fbc02d;
             --accent-hover: #f57f17;
-            --header-bg: #121212; /* Dark header so white logo pops */
+            --header-bg: #121212;
             --font-heading: 'Playfair Display', serif;
             --font-body: 'Montserrat', sans-serif;
             --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
@@ -90,10 +90,10 @@
             color: #000;
         }
 
-        /* Hero Banner with Bright/Clean Overlay */
+        /* Hero Banner - Clearer Background Image */
         .hero {
             position: relative;
-            background: linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)), url('salon.jpg') center/cover no-repeat;
+            background: linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.65)), url('salon.jpg') center/cover no-repeat;
             min-height: 80vh;
             display: flex;
             align-items: center;
@@ -104,6 +104,11 @@
 
         .hero-content {
             max-width: 900px;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 2.5rem;
+            border-radius: 8px;
+            backdrop-filter: blur(3px);
+            box-shadow: var(--shadow-soft);
         }
 
         .hero-content h1 {
@@ -115,10 +120,10 @@
         }
 
         .story-text {
-            font-size: 1.15rem;
-            color: #333333;
-            margin-bottom: 2.2rem;
-            font-weight: 400;
+            font-size: 1.1rem;
+            color: #222222;
+            margin-bottom: 2rem;
+            font-weight: 500;
             line-height: 1.8;
         }
 
@@ -236,20 +241,38 @@
             font-size: 1.1rem;
         }
 
-        /* Meet the Team Gallery */
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 1.8rem;
+        .more-services-note {
             text-align: center;
+            margin-top: 2rem;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #444444;
+            font-style: italic;
+        }
+
+        /* Centered Team Grid (2 Rows of 3) */
+        .team-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .team-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            justify-content: center;
         }
 
         .team-card {
             background-color: var(--card-bg);
             border-radius: 8px;
-            padding: 1.5rem 1.2rem;
+            padding: 1.8rem 1rem;
             border: 1px solid var(--border-light);
             box-shadow: var(--shadow-soft);
+            text-align: center;
             transition: transform 0.3s;
         }
 
@@ -259,8 +282,8 @@
         }
 
         .team-card img {
-            width: 110px;
-            height: 110px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 1rem;
@@ -269,7 +292,7 @@
 
         .team-card h4 {
             font-family: var(--font-heading);
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             color: #111111;
         }
 
@@ -280,7 +303,14 @@
             font-weight: 500;
         }
 
-        /* Accent Sections with Customer / General Photos */
+        /* Instagram Feed Section */
+        .instagram-section {
+            background-color: #f7f7f7;
+            padding: 4rem 1.5rem;
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+        }
+
         .accent-banner {
             background: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)), url('general1.jpg') center/cover fixed;
             padding: 4rem 1.5rem;
@@ -363,6 +393,7 @@
             .story-text { font-size: 1rem; }
             header { flex-direction: column; gap: 1rem; }
             nav { flex-wrap: wrap; justify-content: center; }
+            .team-row { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
         }
     </style>
 </head>
@@ -370,7 +401,7 @@
 
     <!-- Header -->
     <header>
-        <img src="trend_logo_white.png" alt="Trend Estilistas" class="logo-img">
+        <img src="logo.png" alt="Trend Estilistas" class="logo-img">
         <nav>
             <a href="#about" data-es="Nuestra Historia" data-en="Our Story">Nuestra Historia</a>
             <a href="#services" data-es="Experiencias" data-en="Experiences">Experiencias</a>
@@ -438,50 +469,55 @@
                 <div class="price-card"><span class="service-name">Reconstrucción de Davines</span><span class="service-price">60,00 €</span></div>
                 <div class="price-card"><span class="service-name">Tratamiento express</span><span class="service-price">12,00 €</span></div>
             </div>
+            
+            <p class="more-services-note" data-es="Y muchos más servicios disponibles en nuestro sistema de reserva." data-en="Plus many more services available on our booking system.">
+                Y muchos más servicios disponibles en nuestro sistema de reserva.
+            </p>
         </section>
     </div>
 
-    <!-- Meet the Team -->
+    <!-- Meet the Team (Centered 3 + 3) -->
     <section class="section" id="team">
         <h2 class="section-title" data-es="Conozca a Nuestro Equipo" data-en="Meet Our Team">Conozca a Nuestro Equipo</h2>
-        <div class="team-grid">
-            
-            <div class="team-card">
-                <img src="jose.jpg" alt="Jose Antonio">
-                <h4>Jose Antonio</h4>
-                <p>CEO & Head Stylist</p>
+        
+        <div class="team-container">
+            <!-- Line 1: Jose, Mari, Marta -->
+            <div class="team-row">
+                <div class="team-card">
+                    <img src="jose.jpg" alt="Jose Antonio">
+                    <h4>Jose Antonio</h4>
+                    <p>CEO & Head Stylist</p>
+                </div>
+                <div class="team-card">
+                    <img src="marinew.jpeg" alt="Mari Carmen">
+                    <h4>Mari Carmen</h4>
+                    <p data-es="Head Spa Specialist" data-en="Head Spa Specialist">Head Spa Specialist</p>
+                </div>
+                <div class="team-card">
+                    <img src="martanew.jpeg" alt="Marta">
+                    <h4>Marta</h4>
+                    <p data-es="Encargada & Estilista" data-en="Manager & Stylist">Encargada & Estilista</p>
+                </div>
             </div>
 
-            <div class="team-card">
-                <img src="martanew.jpeg" alt="Marta">
-                <h4>Marta</h4>
-                <p data-es="Encargada & Estilista" data-en="Manager & Stylist">Encargada & Estilista</p>
+            <!-- Line 2: Christian, Julia, Fatima -->
+            <div class="team-row">
+                <div class="team-card">
+                    <img src="cristannew.jpeg" alt="Christian">
+                    <h4>Christian</h4>
+                    <p data-es="Estilista" data-en="Stylist">Estilista</p>
+                </div>
+                <div class="team-card">
+                    <img src="julianew.jpeg" alt="Julia">
+                    <h4>Julia</h4>
+                    <p data-es="Estilista" data-en="Stylist">Estilista</p>
+                </div>
+                <div class="team-card">
+                    <img src="fatima.jpg" alt="Fátima">
+                    <h4>Fátima</h4>
+                    <p data-es="Estilista" data-en="Stylist">Estilista</p>
+                </div>
             </div>
-
-            <div class="team-card">
-                <img src="marinew.jpeg" alt="Mari Carmen">
-                <h4>Mari Carmen</h4>
-                <p data-es="Head Spa Specialist" data-en="Head Spa Specialist">Head Spa Specialist</p>
-            </div>
-
-            <div class="team-card">
-                <img src="julianew.jpeg" alt="Julia">
-                <h4>Julia</h4>
-                <p data-es="Estilista" data-en="Stylist">Estilista</p>
-            </div>
-
-            <div class="team-card">
-                <img src="fatima.jpg" alt="Fátima">
-                <h4>Fátima</h4>
-                <p data-es="Estilista" data-en="Stylist">Estilista</p>
-            </div>
-
-            <div class="team-card">
-                <img src="cristannew.jpeg" alt="Christian">
-                <h4>Christian</h4>
-                <p data-es="Estilista" data-en="Stylist">Estilista</p>
-            </div>
-
         </div>
     </section>
 
@@ -496,6 +532,21 @@
                 
                 <!-- Booksy Widget Integration -->
                 <script type="text/javascript" src="https://booksy.com/widget/code.js?id=3454&country=es&lang=en"></script>
+            </div>
+        </section>
+    </div>
+
+    <!-- Instagram Latest Posts Widget -->
+    <div class="instagram-section">
+        <section class="section" style="padding: 0;">
+            <h2 class="section-title" data-es="Síguenos en Instagram" data-en="Follow Us on Instagram">Síguenos en Instagram</h2>
+            <!-- Elfsight / LightWidget Instagram Embed Container -->
+            <div style="max-width: 1000px; margin: 0 auto; text-align: center;">
+                <iframe src="https://cdn.lightwidget.com/widgets/lightwidget.html" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;min-height:320px;"></iframe>
+                <!-- Direct link backup in case widget API key is pending setup -->
+                <p style="margin-top: 1rem;">
+                    <a href="https://www.instagram.com/trend_estilistas/" target="_blank" style="color: var(--accent-hover); font-weight: 600; text-decoration: none;">@trend_estilistas</a>
+                </p>
             </div>
         </section>
     </div>
@@ -570,6 +621,9 @@
             }
         }
     </script>
+
+    <!-- LightWidget Instagram Feed Script -->
+    <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
 
 </body>
 </html>
