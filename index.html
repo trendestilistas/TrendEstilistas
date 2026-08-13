@@ -90,7 +90,7 @@
             color: #000;
         }
 
-        /* Hero Banner - Clearer Background Image */
+        /* Hero Banner */
         .hero {
             position: relative;
             background: linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.65)), url('salon.jpg') center/cover no-repeat;
@@ -303,14 +303,6 @@
             font-weight: 500;
         }
 
-        /* Instagram Feed Section */
-        .instagram-section {
-            background-color: #f7f7f7;
-            padding: 4rem 1.5rem;
-            border-top: 1px solid var(--border-light);
-            border-bottom: 1px solid var(--border-light);
-        }
-
         .accent-banner {
             background: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)), url('general1.jpg') center/cover fixed;
             padding: 4rem 1.5rem;
@@ -332,6 +324,14 @@
             max-width: 900px;
             margin: 0 auto;
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        /* Instagram Section */
+        .instagram-section {
+            background-color: #f7f7f7;
+            padding: 4rem 1.5rem;
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
         }
 
         /* Footer & Social */
@@ -445,7 +445,7 @@
                     <h3 data-es="Escáner Diagnóstico Capilar" data-en="Hair Diagnostic Scanner">Escáner Diagnóstico Capilar</h3>
                     <p data-es="Utilizando la última tecnología microscópica, escaneamos el interior de la estructura de su cabello. Esto nos permite analizar la salud a nivel celular y prescribir tratamientos totalmente personalizados."
                        data-en="Utilizing the latest microscopic technology, we scan deep inside your hair structure. This allows us to analyze health at a cellular level and prescribe completely bespoke treatments.">
-                       Utilizando la última tecnología microscópica, escaneamos el interior de la estructura de su cabello. Esto nos permite analizar la salud a nivel celular y prescribir tratamientos totalmente personalizados.
+                       Utilizando la última tecnología microscópica, escaneamos el interior de la estructura de su cabello. Esto nos permite analizar la salud a nivel cellular y prescribir tratamientos totalmente personalizados.
                     </p>
                 </div>
             </div>
@@ -536,17 +536,14 @@
         </section>
     </div>
 
-    <!-- Instagram Latest Posts Widget -->
+    <!-- Live Instagram Feed (Behold Widget) -->
     <div class="instagram-section">
         <section class="section" style="padding: 0;">
             <h2 class="section-title" data-es="Síguenos en Instagram" data-en="Follow Us on Instagram">Síguenos en Instagram</h2>
-            <!-- Elfsight / LightWidget Instagram Embed Container -->
-            <div style="max-width: 1000px; margin: 0 auto; text-align: center;">
-                <iframe src="https://cdn.lightwidget.com/widgets/lightwidget.html" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;min-height:320px;"></iframe>
-                <!-- Direct link backup in case widget API key is pending setup -->
-                <p style="margin-top: 1rem;">
-                    <a href="https://www.instagram.com/trend_estilistas/" target="_blank" style="color: var(--accent-hover); font-weight: 600; text-decoration: none;">@trend_estilistas</a>
-                </p>
+            
+            <div style="max-width: 1000px; margin: 0 auto;">
+                <!-- Behold Instagram Feed Element -->
+                <behold-widget feed-id="FgOi7pvpCxmiUqXDnRb8"></behold-widget>
             </div>
         </section>
     </div>
@@ -622,8 +619,14 @@
         }
     </script>
 
-    <!-- LightWidget Instagram Feed Script -->
-    <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
+    <!-- Behold Widget External Loader Script -->
+    <script>
+        (() => {
+            if(window.__bhldScript)return;window.__bhldScript=true;
+            const d=document,s=d.createElement("script");s.type="module";
+            s.src="https://w.behold.so/widget.js";setTimeout(()=>{d.head.append(s);},0);
+        })();
+    </script>
 
 </body>
 </html>
