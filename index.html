@@ -1,1 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TREND ESTILISTAS — boutique hair salon offering cuts, color and styling.">
 
+  <title>TREND ESTILISTAS</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cream: #f8f5f0;
+      --warm-white: #fffdf9;
+      --charcoal: #242220;
+      --muted: #77716b;
+      --accent: #b88968;
+      --accent-dark: #966c50;
+      --border: #e7e0d8;
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "DM Sans", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--warm-white);
+      color: var(--charcoal);
+      font-family: var(--sans);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: 0 auto;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 10;
+      padding: 25px 0;
+      color: white;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: var(--serif);
+      font-size: 1.45rem;
+      letter-spacing: 3px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+      font-size: .88rem;
+    }
+
+    .nav-links a {
+      opacity: .9;
+      transition: opacity .2s;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: 720px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      color: white;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(28,24,21,.75),
+          rgba(28,24,21,.2)
+        ),
+        url("https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
+    }
+
+    .hero-content {
+      max-width: 650px;
+      padding-top: 50px;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: .75rem;
+      font-weight: 600;
+      margin-bottom: 18px;
+      color: #ead6c6;
+    }
+
+    h1 {
+      font-family: var(--serif);
+      font-size: clamp(3.5rem, 8vw, 6.5rem);
+      line-height: .98;
+      font-weight: 500;
+      margin-bottom: 25px;
+    }
+
+    .hero p {
+      max-width: 500px;
+      font-size: 1.05rem;
+      color: #eee8e2;
+      margin-bottom: 35px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 27px;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-size: .75rem;
+      font-weight: 600;
+      transition: .25s ease;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background: var(--accent-dark);
+      border-color: var(--accent-dark);
+      transform: translateY(-2px);
+    }
+
+    /* =========================
+       GENERAL SECTIONS
+    ========================= */
+
+    section {
+      padding: 100px 0;
+    }
+
+    .section-label {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: .7rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 5vw, 3.7rem);
+      font-weight: 500;
+      line-height: 1.1;
+      margin-bottom: 25px;
+    }
+
+    /* =========================
+       ABOUT
+    ========================= */
+
+    .about {
+      background: var(--cream);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-image {
+      height: 520px;
+
+      background:
+        url("https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=1000&q=85")
+        center/cover;
+    }
+
+    .about-copy p {
+      color: var(--muted);
+      margin-bottom: 18px;
+      max-width: 520px;
+    }
+
+    /* =========================
+       SERVICES
+    ========================= */
+
+    .services-header {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 55px;
+    }
+
+    .services-header p {
+      color: var(--muted);
+    }
+
+    .services-list {
+      max-width: 850px;
+      margin: auto;
+      border-top: 1px solid var(--border);
+    }
+
+    .service {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      padding: 25px 5px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .service h3 {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      font-weight: 500;
+      margin-bottom: 3px;
+    }
+
+    .service p {
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    .price {
+      color: var(--accent-dark);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    /* =========================
+       BOOKING / BOOKSY
+    ========================= */
+
+    .booking {
+      padding: 90px 0;
+      background: var(--charcoal);
+      color: white;
+      text-align: center;
+    }
+
+    .booking h2 {
+      max-width: 650px;
+      margin: 0 auto 18px;
+    }
+
+    .booking p {
+      color: #bcb6b0;
+      margin-bottom: 35px;
+    }
+
+    .booksy-wrapper {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 25px;
+      background: #fff;
+      color: var(--charcoal);
+      border-radius: 2px;
+      text-align: left;
+    }
+
+    /*
+      Booksy widget styling:
+      The Booksy script below will insert the booking
+      interface into this container.
+    */
+
+    #booksy-widget {
+      width: 100%;
+      min-height: 100px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      background: #191817;
+      color: #aaa39c;
+      padding: 45px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .footer-logo {
+      color: white;
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      letter-spacing: 2px;
+      margin-bottom: 4px;
+    }
+
+    .copyright {
+      font-size: .75rem;
+    }
+
+    .socials {
+      display: flex;
+      gap: 10px;
+    }
+
+    .social {
+      min-width: 42px;
+      height: 42px;
+      padding: 0 13px;
+      border: 1px solid #45413d;
+      display: grid;
+      place-items: center;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .5px;
+      transition: .25s ease;
+    }
+
+    .social:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 700px) {
+
+      header {
+        padding: 20px 0;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: 650px;
+      }
+
+      section {
+        padding: 75px 0;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .about-image {
+        height: 390px;
+        order: 2;
+      }
+
+      .about-copy {
+        order: 1;
+      }
+
+      .service {
+        padding: 22px 0;
+      }
+
+      .service h3 {
+        font-size: 1.15rem;
+      }
+
+      .booksy-wrapper {
+        padding: 12px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .socials {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================= -->
+
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#" class="logo">TREND ESTILISTAS</a>
+
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#booking">Book</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <main>
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="hero">
+      <div class="container">
+
+        <div class="hero-content">
+
+          <div class="eyebrow">
+            Boutique Hair Studio
+          </div>
+
+          <h1>
+            Hair that feels like you.
+          </h1>
+
+          <p>
+            Thoughtful cuts, beautiful color and effortless styling
+            in a warm, intimate studio designed around you.
+          </p>
+
+          <a href="#booking" class="button">
+            Book an Appointment
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =========================
+         ABOUT
+    ========================= -->
+
+    <section class="about" id="about">
+
+      <div class="container">
+
+        <div class="about-grid">
+
+          <div
+            class="about-image"
+            aria-label="Hair stylist working with a client">
+          </div>
+
+          <div class="about-copy">
+
+            <div class="section-label">
+              Our Philosophy
+            </div>
+
+            <h2>
+              Beautiful hair, beautifully personal.
+            </h2>
+
+            <p>
+              At TREND ESTILISTAS, we believe great hair starts
+              with listening. Our stylists take the time to understand
+              your lifestyle, personal style and what makes you feel
+              your best.
+            </p>
+
+            <p>
+              From your first consultation to your finished look,
+              every appointment is relaxed, considered and completely
+              tailored to you.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         SERVICES
+    ========================= -->
+
+    <section id="services">
+
+      <div class="container">
+
+        <div class="services-header">
+
+          <div class="section-label">
+            What We Do
+          </div>
+
+          <h2>
+            Services & Prices
+          </h2>
+
+          <p>
+            Simple, elevated services designed to keep your hair
+            looking and feeling its best.
+          </p>
+
+        </div>
+
+
+        <div class="services-list">
+
+          <div class="service">
+            <div>
+              <h3>Signature Cut</h3>
+              <p>Consultation, cut, wash & finish</p>
+            </div>
+            <div class="price">€55</div>
+          </div>
+
+          <div class="service">
+            <div>
+              <h3>Blow Dry</h3>
+              <p>Polished, effortless styling</p>
+            </div>
+            <div class="price">€35</div>
+          </div>
+
+          <div class="service">
+            <div>
+              <h3>Balayage</h3>
+              <p>Hand-painted natural-looking highlights</p>
+            </div>
+            <div class="price">From €120</div>
+          </div>
+
+          <div class="service">
+            <div>
+              <h3>Full Color</h3>
+              <p>Glossy, dimensional all-over color</p>
+            </div>
+            <div class="price">From €90</div>
+          </div>
+
+          <div class="service">
+            <div>
+              <h3>Color Refresh</h3>
+              <p>Tone, gloss and refresh existing color</p>
+            </div>
+            <div class="price">From €65</div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         BOOK APPOINTMENT / BOOKSY
+    ========================= -->
+
+    <section class="booking" id="booking">
+
+      <div class="container">
+
+        <div class="section-label">
+          Let's Get Started
+        </div>
+
+        <h2>
+          Ready for your next hair day?
+        </h2>
+
+        <p>
+          Choose your service and book your appointment online.
+        </p>
+
+
+        <!-- Booksy Widget -->
+
+        <div class="booksy-wrapper">
+
+          <div id="booksy-widget"></div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-inner">
+
+        <div>
+
+          <div class="footer-logo">
+            TREND ESTILISTAS
+          </div>
+
+          <div class="copyright">
+            © 2026 TREND ESTILISTAS
+          </div>
+
+        </div>
+
+
+        <!-- Social & Google Links -->
+
+        <div class="socials">
+
+          <a
+            class="social"
+            href="https://www.instagram.com/trend_estilistas/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram">
+            INSTAGRAM
+          </a>
+
+          <a
+            class="social"
+            href="https://www.facebook.com/profile.php?id=100063550147983"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook">
+            FACEBOOK
+          </a>
+
+          <a
+            class="social"
+            href="https://share.google/tioP08GmaFFJHqOyx"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Google">
+            GOOGLE
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       BOOKSY WIDGET
+    ========================= -->
+
+  <script
+    type="text/javascript"
+    src="https://booksy.com/widget/code.js?id=3454&country=es&lang=en">
+  </script>
+
+</body>
+</html>
