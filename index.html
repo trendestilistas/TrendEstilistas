@@ -336,6 +336,76 @@
             border-bottom: 1px solid var(--border-light);
         }
 
+        /* Reviews Section */
+        .reviews-section {
+            background-color: #ffffff;
+            padding: 5rem 1.5rem;
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .review-card {
+            background-color: #fcfcfc;
+            border: 1px solid var(--border-light);
+            border-top: 3px solid var(--accent-yellow);
+            border-radius: 8px;
+            padding: 1.8rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .review-stars {
+            color: #fbc02d;
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .review-text {
+            font-style: italic;
+            color: #444444;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.2rem;
+        }
+
+        .review-author {
+            font-weight: 700;
+            color: #111111;
+            font-size: 0.9rem;
+        }
+
+        .google-badge-container {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .google-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: #ffffff;
+            padding: 0.6rem 1.5rem;
+            border-radius: 30px;
+            border: 1px solid var(--border-light);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            font-weight: 600;
+        }
+
+        .reviews-btn-container {
+            text-align: center;
+            margin-top: 2.5rem;
+        }
+
         /* Footer & Social */
         footer {
             background-color: #111111;
@@ -409,6 +479,7 @@
             <a href="#services" data-es="Experiencias" data-en="Experiences">Experiencias</a>
             <a href="#prices" data-es="Precios" data-en="Prices">Precios</a>
             <a href="#team" data-es="Equipo" data-en="Team">Equipo</a>
+            <a href="#reviews" data-es="Opiniones" data-en="Reviews">Opiniones</a>
             <a href="#booking" data-es="Reservar" data-en="Book Now">Reservar</a>
             <button class="lang-switch" id="langBtn" onclick="toggleLanguage()">EN</button>
         </nav>
@@ -455,7 +526,7 @@
         </div>
     </section>
 
-    <!-- Popular Services & Prices (Fully Translated) -->
+    <!-- Popular Services & Prices -->
     <div class="accent-banner">
         <section class="section" id="prices" style="padding: 0;">
             <h2 class="section-title" data-es="Servicios y Tarifas" data-en="Services & Pricing">Servicios y Tarifas</h2>
@@ -469,7 +540,7 @@
                     <span class="service-price">28,00 €</span>
                 </div>
                 <div class="price-card">
-                    <span class="service-name" data-es="Peinado" data-en="Blowdry & Styling" data-es-prefix="desde " data-en-prefix="from ">desde 22,00 €</span>
+                    <span class="service-name" data-es="Peinado" data-en="Blowdry & Styling">Peinado</span>
                     <span class="service-price" id="price-peinado">desde 22,00 €</span>
                 </div>
                 <div class="price-card">
@@ -508,7 +579,7 @@
         </section>
     </div>
 
-    <!-- Meet the Team (Fully Translated Roles) -->
+    <!-- Meet the Team -->
     <section class="section" id="team">
         <h2 class="section-title" data-es="Conozca a Nuestro Equipo" data-en="Meet Our Team">Conozca a Nuestro Equipo</h2>
         
@@ -580,6 +651,54 @@
         </section>
     </div>
 
+    <!-- Google Reviews Section -->
+    <section class="reviews-section" id="reviews">
+        <div class="section" style="padding: 0;">
+            <h2 class="section-title" data-es="Lo Que Dicen Nuestros Clientes" data-en="What Our Clients Say">Lo Que Dicen Nuestros Clientes</h2>
+            
+            <div class="google-badge-container">
+                <div class="google-badge">
+                    <span data-es="Valoración en Google:" data-en="Google Rating:">Valoración en Google:</span>
+                    <span style="color: #fbc02d;">★ ★ ★ ★ ★</span>
+                    <span>5.0</span>
+                </div>
+            </div>
+
+            <div class="reviews-grid">
+                <!-- Review Card 1 -->
+                <div class="review-card">
+                    <div class="review-stars">★ ★ ★ ★ ★</div>
+                    <p class="review-text" data-es="¡La mejor experiencia de peluquería! Jose y todo el equipo me hicieron un balayage increíble. La atención es impecable y el salón precioso." data-en="The best hair salon experience! Jose and the team created an incredible balayage for me. The attention to detail is faultless and the salon is gorgeous.">
+                        "¡La mejor experiencia de peluquería! Jose y todo el equipo me hicieron un balayage increíble. La atención es impecable y el salón precioso."
+                    </p>
+                    <p class="review-author">— María S.</p>
+                </div>
+
+                <!-- Review Card 2 -->
+                <div class="review-card">
+                    <div class="review-stars">★ ★ ★ ★ ★</div>
+                    <p class="review-text" data-es="El tratamiento de Head Spa Japonés es puro relax. Mi cuero cabelludo y mi pelo están como nunca. Sin duda volveré regularmente." data-en="The Japanese Head Spa treatment is pure relaxation. My hair and scalp have never felt so good. I will definitely be back regularly!">
+                        "El tratamiento de Head Spa Japonés es puro relax. Mi cuero cabelludo y mi pelo están como nunca. Sin duda volveré regularmente."
+                    </p>
+                    <p class="review-author">— Sarah T.</p>
+                </div>
+
+                <!-- Review Card 3 -->
+                <div class="review-card">
+                    <div class="review-stars">★ ★ ★ ★ ★</div>
+                    <p class="review-text" data-es="Súper profesionales, ambiente súper acogedor y la corrección de color que me hicieron fue espectacular. Recomendadísimo en La Nucía." data-en="Super professional, lovely welcoming environment, and the color correction they did was stunning. Highly recommended in La Nucía.">
+                        "Súper profesionales, ambiente súper acogedor y la corrección de color que me hicieron fue espectacular. Recomendadísimo en La Nucía."
+                    </p>
+                    <p class="review-author">— Elena R.</p>
+                </div>
+            </div>
+
+            <div class="reviews-btn-container">
+                <a href="https://maps.google.com/?cid=TREND_ESTILISTAS" target="_blank" class="btn-yellow" data-es="Ver Más Opiniones en Google" data-en="Read More Reviews on Google">Ver Más Opiniones en Google</a>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact & Footer -->
     <footer id="contact">
         <div class="footer-grid">
@@ -594,8 +713,8 @@
             <div class="footer-col">
                 <h4 data-es="Horarios y Contacto" data-en="Hours & Contact">Horarios y Contacto</h4>
                 <p><strong data-es="Lunes – Viernes:" data-en="Monday – Friday:">Lunes – Viernes:</strong> 09:30 – 19:00</p>
-                <p><strong data-es="Sábado:" data-en="Saturday:">Sábado:</strong> 09:30 – 14:30</p>
-                <p><strong data-es="Domingo:" data-en="Sunday:">Domingo:</strong> <span data-es="Cerrado" data-en="Closed">Cerrado</span></p>
+                <p><strong data-es="Sábado:" data-en="Saturday:">Saturday:</strong> 09:30 – 14:30</p>
+                <p><strong data-es="Domingo:" data-en="Sunday:">Sunday:</strong> <span data-es="Cerrado" data-en="Closed">Cerrado</span></p>
                 <p style="margin-top: 0.8rem;">Tel / WhatsApp: +34 865 94 59 56</p>
             </div>
 
