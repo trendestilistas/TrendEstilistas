@@ -263,18 +263,12 @@
             font-style: italic;
         }
 
-        /* Centered Team Grid */
-        .team-container {
+        /* Responsive Unified Team Grid */
+        .team-grid {
             max-width: 900px;
             margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .team-row {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(3, 1fr); /* 3 per row on Desktop */
             gap: 2rem;
             justify-content: center;
         }
@@ -421,7 +415,7 @@
         footer {
             background-color: #111111;
             color: #e0e0e0;
-            padding: 4rem 1.5rem 6rem; /* Extra bottom padding for mobile sticky bar */
+            padding: 4rem 1.5rem 6rem; /* Bottom padding for sticky action bar */
         }
 
         .footer-grid {
@@ -471,7 +465,7 @@
             padding-top: 2rem;
         }
 
-        /* STICKY MOBILE ACTION BAR (Hidden on Desktop) */
+        /* STICKY MOBILE ACTION BAR */
         .sticky-action-bar {
             display: none;
         }
@@ -481,7 +475,7 @@
            ====================================================== */
         @media (max-width: 768px) {
 
-            /* Typography Readability */
+            /* Body Readability */
             body {
                 font-size: 1.05rem;
             }
@@ -501,11 +495,11 @@
             }
 
             .burger-btn {
-                display: block; /* Show burger button on mobile */
+                display: block;
             }
 
             nav {
-                display: none; /* Hidden by default on mobile */
+                display: none;
                 flex-direction: column;
                 position: absolute;
                 top: 100%;
@@ -519,7 +513,7 @@
             }
 
             nav.nav-active {
-                display: flex; /* Show dropdown when toggled */
+                display: flex;
             }
 
             nav a {
@@ -528,7 +522,7 @@
                 text-align: center;
             }
 
-            /* 1. Hero Section: Less photo height & punchier text */
+            /* 1. Hero Section */
             .hero {
                 min-height: auto;
                 padding: 2.5rem 1rem;
@@ -550,7 +544,7 @@
                 margin-bottom: 1.5rem;
             }
 
-            /* 2. Exclusive Experiences: Single column stack */
+            /* 2. Experiences: Single Column */
             .grid-2 {
                 grid-template-columns: 1fr;
                 gap: 1.8rem;
@@ -564,7 +558,7 @@
                 font-size: 1.05rem;
             }
 
-            /* 3. Services & Prices: Single column stack */
+            /* 3. Pricing: Single Column */
             .price-grid {
                 grid-template-columns: 1fr;
                 gap: 1rem;
@@ -582,18 +576,14 @@
                 font-size: 1.15rem;
             }
 
-            /* 4. Team Section: Exactly 2 staff per line */
-            .team-container {
-                gap: 1rem;
-            }
-
-            .team-row {
-                grid-template-columns: repeat(2, 1fr); /* 2 per line on mobile */
+            /* 4. Team Section: STRICTLY 2 STAFF PER LINE (3 rows of 2) */
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
                 gap: 1rem;
             }
 
             .team-card {
-                padding: 1.2rem 0.6rem;
+                padding: 1.2rem 0.5rem;
             }
 
             .team-card img {
@@ -606,10 +596,10 @@
             }
 
             .team-card p {
-                font-size: 0.9rem;
+                font-size: 0.85rem;
             }
 
-            /* 5. Reviews Section: Single column stack */
+            /* 5. Reviews: Single Column */
             .reviews-grid {
                 grid-template-columns: 1fr;
                 gap: 1.2rem;
@@ -620,7 +610,7 @@
                 line-height: 1.7;
             }
 
-            /* 6. Sticky Bottom Action Bar for Mobile */
+            /* 6. Sticky Mobile Action Bar */
             .sticky-action-bar {
                 display: flex;
                 position: fixed;
@@ -774,47 +764,40 @@
         </section>
     </div>
 
-    <!-- Meet the Team (2 per row on Mobile) -->
+    <!-- Meet the Team (Strictly 2 per row on Mobile, 3 on Desktop) -->
     <section class="section" id="team">
         <h2 class="section-title" data-es="Conozca a Nuestro Equipo" data-en="Meet Our Team">Conozca a Nuestro Equipo</h2>
         
-        <div class="team-container">
-            <!-- Line 1: Jose, Mari, Marta -->
-            <div class="team-row">
-                <div class="team-card">
-                    <img src="jose.jpg" alt="Jose Antonio">
-                    <h4>Jose Antonio</h4>
-                    <p data-es="CEO & Head Estilista" data-en="CEO & Head Stylist">CEO & Head Estilista</p>
-                </div>
-                <div class="team-card">
-                    <img src="marinew.jpeg" alt="Mari Carmen">
-                    <h4>Mari Carmen</h4>
-                    <p data-es="Especialista Head Spa" data-en="Head Spa Specialist">Especialista Head Spa</p>
-                </div>
-                <div class="team-card">
-                    <img src="martanew.jpeg" alt="Marta">
-                    <h4>Marta</h4>
-                    <p data-es="Encargada & Estilista" data-en="Manager & Stylist">Encargada & Estilista</p>
-                </div>
+        <div class="team-grid">
+            <div class="team-card">
+                <img src="jose.jpg" alt="Jose Antonio">
+                <h4>Jose Antonio</h4>
+                <p data-es="CEO & Head Estilista" data-en="CEO & Head Stylist">CEO & Head Estilista</p>
             </div>
-
-            <!-- Line 2: Christian, Julia, Fatima -->
-            <div class="team-row">
-                <div class="team-card">
-                    <img src="cristannew.jpeg" alt="Christian">
-                    <h4>Christian</h4>
-                    <p data-es="Estilista" data-en="Stylist">Estilista</p>
-                </div>
-                <div class="team-card">
-                    <img src="julianew.jpeg" alt="Julia">
-                    <h4>Julia</h4>
-                    <p data-es="Estilista" data-en="Stylist">Estilista</p>
-                </div>
-                <div class="team-card">
-                    <img src="fatima.jpg" alt="Fátima">
-                    <h4>Fátima</h4>
-                    <p data-es="Estilista" data-en="Stylist">Estilista</p>
-                </div>
+            <div class="team-card">
+                <img src="marinew.jpeg" alt="Mari Carmen">
+                <h4>Mari Carmen</h4>
+                <p data-es="Especialista Head Spa" data-en="Head Spa Specialist">Especialista Head Spa</p>
+            </div>
+            <div class="team-card">
+                <img src="martanew.jpeg" alt="Marta">
+                <h4>Marta</h4>
+                <p data-es="Encargada & Estilista" data-en="Manager & Stylist">Encargada & Estilista</p>
+            </div>
+            <div class="team-card">
+                <img src="cristannew.jpeg" alt="Christian">
+                <h4>Christian</h4>
+                <p data-es="Estilista" data-en="Stylist">Estilista</p>
+            </div>
+            <div class="team-card">
+                <img src="julianew.jpeg" alt="Julia">
+                <h4>Julia</h4>
+                <p data-es="Estilista" data-en="Stylist">Estilista</p>
+            </div>
+            <div class="team-card">
+                <img src="fatima.jpg" alt="Fátima">
+                <h4>Fátima</h4>
+                <p data-es="Estilista" data-en="Stylist">Estilista</p>
             </div>
         </div>
     </section>
