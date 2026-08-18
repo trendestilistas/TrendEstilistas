@@ -4,23 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trend Estilistas | Peluquería de Lujo y Head Spa en La Nucía</title>
-    <meta name="description" content="Peluquería de lujo, Head Spa Japonés y diagnóstico capilar en La Nucía y El Albir. Reserve su cita online en Trend Estilistas.">
-
-    <!-- PWA & Mobile Web App Meta Tags -->
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#121212">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Trend Estilistas">
-    <link rel="apple-touch-icon" href="logo.png">
-
-    <!-- Open Graph Metadata -->
-    <meta property="og:title" content="Trend Estilistas | Peluquería y Head Spa en La Nucía">
-    <meta property="og:description" content="Redefiniendo la experiencia del salón de belleza en La Nucía con Head Spa Japonés, balayage y tratamientos de alta gama.">
-    <meta property="og:image" content="salon.jpg">
-    <meta property="og:type" content="website">
-
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -75,7 +58,7 @@
         nav {
             display: flex;
             align-items: center;
-            gap: 1.2rem;
+            gap: 1.5rem;
         }
 
         nav a {
@@ -90,7 +73,7 @@
             color: var(--accent-yellow);
         }
 
-        .lang-switch, .btn-install {
+        .lang-switch {
             background: transparent;
             border: 1px solid var(--accent-yellow);
             color: var(--accent-yellow);
@@ -102,16 +85,9 @@
             transition: all 0.3s;
         }
 
-        .btn-install {
+        .lang-switch:hover {
             background: var(--accent-yellow);
-            color: #121212;
-            display: none; /* Controlled by JS when installation is available */
-        }
-
-        .lang-switch:hover, .btn-install:hover {
-            background: var(--accent-hover);
-            color: #ffffff;
-            border-color: var(--accent-hover);
+            color: #000;
         }
 
         /* Hero Banner */
@@ -276,7 +252,7 @@
             font-style: italic;
         }
 
-        /* Centered Team Grid */
+        /* Centered Team Grid (2 Rows of 3) */
         .team-container {
             max-width: 900px;
             margin: 0 auto;
@@ -434,8 +410,7 @@
             <a href="#prices" data-es="Precios" data-en="Prices">Precios</a>
             <a href="#team" data-es="Equipo" data-en="Team">Equipo</a>
             <a href="#booking" data-es="Reservar" data-en="Book Now">Reservar</a>
-            <button class="btn-install" id="installAppBtn" data-es="Instalar App" data-en="Install App">Instalar App</button>
-            <button class="lang-switch" id="langBtn" aria-label="Cambiar idioma" onclick="toggleLanguage()">EN</button>
+            <button class="lang-switch" id="langBtn" onclick="toggleLanguage()">EN</button>
         </nav>
     </header>
 
@@ -480,7 +455,7 @@
         </div>
     </section>
 
-    <!-- Popular Services & Prices -->
+    <!-- Popular Services & Prices (Fully Translated) -->
     <div class="accent-banner">
         <section class="section" id="prices" style="padding: 0;">
             <h2 class="section-title" data-es="Servicios y Tarifas" data-en="Services & Pricing">Servicios y Tarifas</h2>
@@ -494,16 +469,16 @@
                     <span class="service-price">28,00 €</span>
                 </div>
                 <div class="price-card">
-                    <span class="service-name" data-es="Peinado" data-en="Blowdry & Styling">Peinado</span>
-                    <span class="service-price" data-es="desde 22,00 €" data-en="from €22.00">desde 22,00 €</span>
+                    <span class="service-name" data-es="Peinado" data-en="Blowdry & Styling" data-es-prefix="desde " data-en-prefix="from ">desde 22,00 €</span>
+                    <span class="service-price" id="price-peinado">desde 22,00 €</span>
                 </div>
                 <div class="price-card">
                     <span class="service-name" data-es="Color completo" data-en="Full Hair Color">Color completo</span>
-                    <span class="service-price" data-es="desde 38,00 €" data-en="from €38.00">desde 38,00 €</span>
+                    <span class="service-price" id="price-color">desde 38,00 €</span>
                 </div>
                 <div class="price-card">
                     <span class="service-name" data-es="Balayage" data-en="Balayage">Balayage</span>
-                    <span class="service-price" data-es="desde 130,00 €" data-en="from €130.00">desde 130,00 €</span>
+                    <span class="service-price" id="price-balayage">desde 130,00 €</span>
                 </div>
                 <div class="price-card">
                     <span class="service-name" data-es="Lavado + secado express" data-en="Wash + Express Dry">Lavado + secado express</span>
@@ -511,7 +486,7 @@
                 </div>
                 <div class="price-card">
                     <span class="service-name" data-es="Tratamiento Olaplex" data-en="Olaplex Treatment">Tratamiento Olaplex</span>
-                    <span class="service-price" data-es="desde 40,00 €" data-en="from €40.00">desde 40,00 €</span>
+                    <span class="service-price" id="price-olaplex">desde 40,00 €</span>
                 </div>
                 <div class="price-card">
                     <span class="service-name" data-es="Tratamiento Fibre Clinix" data-en="Fibre Clinix Treatment">Tratamiento Fibre Clinix</span>
@@ -533,7 +508,7 @@
         </section>
     </div>
 
-    <!-- Meet the Team -->
+    <!-- Meet the Team (Fully Translated Roles) -->
     <section class="section" id="team">
         <h2 class="section-title" data-es="Conozca a Nuestro Equipo" data-en="Meet Our Team">Conozca a Nuestro Equipo</h2>
         
@@ -599,6 +574,7 @@
             <h2 class="section-title" data-es="Síguenos en Instagram" data-en="Follow Us on Instagram">Síguenos en Instagram</h2>
             
             <div style="max-width: 1000px; margin: 0 auto;">
+                <!-- Behold Instagram Feed Element -->
                 <behold-widget feed-id="FgOi7pvpCxmiUqXDnRb8"></behold-widget>
             </div>
         </section>
@@ -639,41 +615,6 @@
         </div>
     </footer>
 
-    <!-- Service Worker Registration & PWA Install Prompt Script -->
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('sw.js')
-                    .then(reg => console.log('Service Worker registered successfully:', reg.scope))
-                    .catch(err => console.log('Service Worker registration failed:', err));
-            });
-        }
-
-        let deferredPrompt;
-        const installBtn = document.getElementById('installAppBtn');
-
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-            installBtn.style.display = 'inline-block';
-        });
-
-        installBtn.addEventListener('click', async () => {
-            if (!deferredPrompt) return;
-            deferredPrompt.prompt();
-            const { outcome } = await deferredPrompt.userChoice;
-            if (outcome === 'accepted') {
-                installBtn.style.display = 'none';
-            }
-            deferredPrompt = null;
-        });
-
-        window.addEventListener('appinstalled', () => {
-            installBtn.style.display = 'none';
-            deferredPrompt = null;
-        });
-    </script>
-
     <!-- Interactive ES/EN Language Switching Script -->
     <script>
         let currentLang = 'es';
@@ -691,6 +632,12 @@
                 btn.textContent = 'ES';
                 storyText.textContent = enStory;
 
+                // Update "desde" to "from" for prices
+                document.getElementById('price-peinado').textContent = 'from 22,00 €';
+                document.getElementById('price-color').textContent = 'from 38,00 €';
+                document.getElementById('price-balayage').textContent = 'from 130,00 €';
+                document.getElementById('price-olaplex').textContent = 'from 40,00 €';
+
                 elements.forEach(el => {
                     if (el.getAttribute('data-en')) {
                         el.textContent = el.getAttribute('data-en');
@@ -700,6 +647,12 @@
                 currentLang = 'es';
                 btn.textContent = 'EN';
                 storyText.textContent = esStory;
+
+                // Revert "from" to "desde" for prices
+                document.getElementById('price-peinado').textContent = 'desde 22,00 €';
+                document.getElementById('price-color').textContent = 'desde 38,00 €';
+                document.getElementById('price-balayage').textContent = 'desde 130,00 €';
+                document.getElementById('price-olaplex').textContent = 'desde 40,00 €';
 
                 elements.forEach(el => {
                     if (el.getAttribute('data-es')) {
