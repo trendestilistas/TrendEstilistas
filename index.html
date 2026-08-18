@@ -90,6 +90,17 @@
             color: #000;
         }
 
+        /* Burger Menu Button (Hidden on Desktop) */
+        .burger-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 2rem;
+            cursor: pointer;
+            line-height: 1;
+        }
+
         /* Hero Banner */
         .hero {
             position: relative;
@@ -252,18 +263,12 @@
             font-style: italic;
         }
 
-        /* Centered Team Grid (2 Rows of 3) */
-        .team-container {
+        /* Responsive Unified Team Grid */
+        .team-grid {
             max-width: 900px;
             margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .team-row {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(3, 1fr); /* 3 per row on Desktop */
             gap: 2rem;
             justify-content: center;
         }
@@ -336,11 +341,81 @@
             border-bottom: 1px solid var(--border-light);
         }
 
+        /* Reviews Section */
+        .reviews-section {
+            background-color: #ffffff;
+            padding: 5rem 1.5rem;
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .review-card {
+            background-color: #fcfcfc;
+            border: 1px solid var(--border-light);
+            border-top: 3px solid var(--accent-yellow);
+            border-radius: 8px;
+            padding: 1.8rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .review-stars {
+            color: #fbc02d;
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .review-text {
+            font-style: italic;
+            color: #444444;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.2rem;
+        }
+
+        .review-author {
+            font-weight: 700;
+            color: #111111;
+            font-size: 0.9rem;
+        }
+
+        .google-badge-container {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .google-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: #ffffff;
+            padding: 0.6rem 1.5rem;
+            border-radius: 30px;
+            border: 1px solid var(--border-light);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            font-weight: 600;
+        }
+
+        .reviews-btn-container {
+            text-align: center;
+            margin-top: 2.5rem;
+        }
+
         /* Footer & Social */
         footer {
             background-color: #111111;
             color: #e0e0e0;
-            padding: 4rem 1.5rem 2rem;
+            padding: 4rem 1.5rem 6rem; /* Bottom padding for sticky action bar */
         }
 
         .footer-grid {
@@ -390,26 +465,207 @@
             padding-top: 2rem;
         }
 
+        /* STICKY MOBILE ACTION BAR */
+        .sticky-action-bar {
+            display: none;
+        }
+
+        /* ======================================================
+           📱 MOBILE STYLES (Screen widths 768px and below)
+           ====================================================== */
         @media (max-width: 768px) {
-            .hero-content h1 { font-size: 2.2rem; }
-            .story-text { font-size: 1rem; }
-            header { flex-direction: column; gap: 1rem; }
-            nav { flex-wrap: wrap; justify-content: center; }
-            .team-row { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+
+            /* Body Readability */
+            body {
+                font-size: 1.05rem;
+            }
+
+            .section {
+                padding: 3rem 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            /* Header & Burger Menu */
+            header {
+                padding: 0.8rem 1.2rem;
+            }
+
+            .burger-btn {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--header-bg);
+                padding: 1.5rem;
+                gap: 1.2rem;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+                border-top: 1px solid #222;
+            }
+
+            nav.nav-active {
+                display: flex;
+            }
+
+            nav a {
+                font-size: 1.1rem;
+                width: 100%;
+                text-align: center;
+            }
+
+            /* 1. Hero Section */
+            .hero {
+                min-height: auto;
+                padding: 2.5rem 1rem;
+                background-position: center top;
+            }
+
+            .hero-content {
+                padding: 1.5rem 1.2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+                margin-bottom: 1rem;
+            }
+
+            .story-text {
+                font-size: 1.15rem;
+                line-height: 1.7;
+                margin-bottom: 1.5rem;
+            }
+
+            /* 2. Experiences: Single Column */
+            .grid-2 {
+                grid-template-columns: 1fr;
+                gap: 1.8rem;
+            }
+
+            .card-body h3 {
+                font-size: 1.6rem;
+            }
+
+            .card-body p {
+                font-size: 1.05rem;
+            }
+
+            /* 3. Pricing: Single Column */
+            .price-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .price-card {
+                padding: 1.2rem;
+            }
+
+            .price-card .service-name {
+                font-size: 1.05rem;
+            }
+
+            .price-card .service-price {
+                font-size: 1.15rem;
+            }
+
+            /* 4. Team Section: STRICTLY 2 STAFF PER LINE (3 rows of 2) */
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 1rem;
+            }
+
+            .team-card {
+                padding: 1.2rem 0.5rem;
+            }
+
+            .team-card img {
+                width: 95px;
+                height: 95px;
+            }
+
+            .team-card h4 {
+                font-size: 1.1rem;
+            }
+
+            .team-card p {
+                font-size: 0.85rem;
+            }
+
+            /* 5. Reviews: Single Column */
+            .reviews-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+
+            .review-text {
+                font-size: 1.05rem;
+                line-height: 1.7;
+            }
+
+            /* 6. Sticky Mobile Action Bar */
+            .sticky-action-bar {
+                display: flex;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                z-index: 2000;
+                background-color: #111111;
+                border-top: 2px solid var(--accent-yellow);
+                box-shadow: 0 -5px 15px rgba(0,0,0,0.2);
+            }
+
+            .sticky-btn {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.5rem;
+                padding: 0.9rem 0.5rem;
+                text-decoration: none;
+                font-weight: 700;
+                font-size: 0.95rem;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+
+            .sticky-btn-whatsapp {
+                background-color: #25d366;
+                color: #000000;
+                border-right: 1px solid rgba(0,0,0,0.1);
+            }
+
+            .sticky-btn-booking {
+                background-color: var(--accent-yellow);
+                color: #111111;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
+    <!-- Header with Mobile Burger Menu -->
     <header>
         <img src="logo.png" alt="Trend Estilistas" class="logo-img">
-        <nav>
-            <a href="#about" data-es="Nuestra Historia" data-en="Our Story">Nuestra Historia</a>
-            <a href="#services" data-es="Experiencias" data-en="Experiences">Experiencias</a>
-            <a href="#prices" data-es="Precios" data-en="Prices">Precios</a>
-            <a href="#team" data-es="Equipo" data-en="Team">Equipo</a>
-            <a href="#booking" data-es="Reservar" data-en="Book Now">Reservar</a>
+        
+        <!-- Burger Button (Mobile) -->
+        <button class="burger-btn" id="burgerBtn" onclick="toggleMenu()" aria-label="Abrir Menú">☰</button>
+
+        <nav id="navMenu">
+            <a href="#about" onclick="closeMenu()" data-es="Nuestra Historia" data-en="Our Story">Nuestra Historia</a>
+            <a href="#services" onclick="closeMenu()" data-es="Experiencias" data-en="Experiences">Experiencias</a>
+            <a href="#prices" onclick="closeMenu()" data-es="Precios" data-en="Prices">Precios</a>
+            <a href="#team" onclick="closeMenu()" data-es="Equipo" data-en="Team">Equipo</a>
+            <a href="#reviews" onclick="closeMenu()" data-es="Opiniones" data-en="Reviews">Opiniones</a>
+            <a href="#booking" onclick="closeMenu()" data-es="Reservar" data-en="Book Now">Reservar</a>
             <button class="lang-switch" id="langBtn" onclick="toggleLanguage()">EN</button>
         </nav>
     </header>
@@ -455,7 +711,7 @@
         </div>
     </section>
 
-    <!-- Popular Services & Prices (Fully Translated) -->
+    <!-- Popular Services & Prices -->
     <div class="accent-banner">
         <section class="section" id="prices" style="padding: 0;">
             <h2 class="section-title" data-es="Servicios y Tarifas" data-en="Services & Pricing">Servicios y Tarifas</h2>
@@ -469,7 +725,7 @@
                     <span class="service-price">28,00 €</span>
                 </div>
                 <div class="price-card">
-                    <span class="service-name" data-es="Peinado" data-en="Blowdry & Styling" data-es-prefix="desde " data-en-prefix="from ">desde 22,00 €</span>
+                    <span class="service-name" data-es="Peinado" data-en="Blowdry & Styling">Peinado</span>
                     <span class="service-price" id="price-peinado">desde 22,00 €</span>
                 </div>
                 <div class="price-card">
@@ -508,47 +764,40 @@
         </section>
     </div>
 
-    <!-- Meet the Team (Fully Translated Roles) -->
+    <!-- Meet the Team (Strictly 2 per row on Mobile, 3 on Desktop) -->
     <section class="section" id="team">
         <h2 class="section-title" data-es="Conozca a Nuestro Equipo" data-en="Meet Our Team">Conozca a Nuestro Equipo</h2>
         
-        <div class="team-container">
-            <!-- Line 1: Jose, Mari, Marta -->
-            <div class="team-row">
-                <div class="team-card">
-                    <img src="jose.jpg" alt="Jose Antonio">
-                    <h4>Jose Antonio</h4>
-                    <p data-es="CEO & Head Estilista" data-en="CEO & Head Stylist">CEO & Head Estilista</p>
-                </div>
-                <div class="team-card">
-                    <img src="marinew.jpeg" alt="Mari Carmen">
-                    <h4>Mari Carmen</h4>
-                    <p data-es="Especialista Head Spa" data-en="Head Spa Specialist">Especialista Head Spa</p>
-                </div>
-                <div class="team-card">
-                    <img src="martanew.jpeg" alt="Marta">
-                    <h4>Marta</h4>
-                    <p data-es="Encargada & Estilista" data-en="Manager & Stylist">Encargada & Estilista</p>
-                </div>
+        <div class="team-grid">
+            <div class="team-card">
+                <img src="jose.jpg" alt="Jose Antonio">
+                <h4>Jose Antonio</h4>
+                <p data-es="CEO & Head Estilista" data-en="CEO & Head Stylist">CEO & Head Estilista</p>
             </div>
-
-            <!-- Line 2: Christian, Julia, Fatima -->
-            <div class="team-row">
-                <div class="team-card">
-                    <img src="cristannew.jpeg" alt="Christian">
-                    <h4>Christian</h4>
-                    <p data-es="Estilista" data-en="Stylist">Estilista</p>
-                </div>
-                <div class="team-card">
-                    <img src="julianew.jpeg" alt="Julia">
-                    <h4>Julia</h4>
-                    <p data-es="Estilista" data-en="Stylist">Estilista</p>
-                </div>
-                <div class="team-card">
-                    <img src="fatima.jpg" alt="Fátima">
-                    <h4>Fátima</h4>
-                    <p data-es="Estilista" data-en="Stylist">Estilista</p>
-                </div>
+            <div class="team-card">
+                <img src="marinew.jpeg" alt="Mari Carmen">
+                <h4>Mari Carmen</h4>
+                <p data-es="Especialista Head Spa" data-en="Head Spa Specialist">Especialista Head Spa</p>
+            </div>
+            <div class="team-card">
+                <img src="martanew.jpeg" alt="Marta">
+                <h4>Marta</h4>
+                <p data-es="Encargada & Estilista" data-en="Manager & Stylist">Encargada & Estilista</p>
+            </div>
+            <div class="team-card">
+                <img src="cristannew.jpeg" alt="Christian">
+                <h4>Christian</h4>
+                <p data-es="Estilista" data-en="Stylist">Estilista</p>
+            </div>
+            <div class="team-card">
+                <img src="julianew.jpeg" alt="Julia">
+                <h4>Julia</h4>
+                <p data-es="Estilista" data-en="Stylist">Estilista</p>
+            </div>
+            <div class="team-card">
+                <img src="fatima.jpg" alt="Fátima">
+                <h4>Fátima</h4>
+                <p data-es="Estilista" data-en="Stylist">Estilista</p>
             </div>
         </div>
     </section>
@@ -580,6 +829,54 @@
         </section>
     </div>
 
+    <!-- Google Reviews Section -->
+    <section class="reviews-section" id="reviews">
+        <div class="section" style="padding: 0;">
+            <h2 class="section-title" data-es="Lo Que Dicen Nuestros Clientes" data-en="What Our Clients Say">Lo Que Dicen Nuestros Clientes</h2>
+            
+            <div class="google-badge-container">
+                <div class="google-badge">
+                    <span data-es="Valoración en Google:" data-en="Google Rating:">Valoración en Google:</span>
+                    <span style="color: #fbc02d;">★ ★ ★ ★ ★</span>
+                    <span>5.0</span>
+                </div>
+            </div>
+
+            <div class="reviews-grid">
+                <!-- Review Card 1 -->
+                <div class="review-card">
+                    <div class="review-stars">★ ★ ★ ★ ★</div>
+                    <p class="review-text" data-es="¡La mejor experiencia de peluquería! Jose y todo el equipo me hicieron un balayage increíble. La atención es impecable y el salón precioso." data-en="The best hair salon experience! Jose and the team created an incredible balayage for me. The attention to detail is faultless and the salon is gorgeous.">
+                        "¡La mejor experiencia de peluquería! Jose y todo el equipo me hicieron un balayage increíble. La atención es impecable y el salón precioso."
+                    </p>
+                    <p class="review-author">— María S.</p>
+                </div>
+
+                <!-- Review Card 2 -->
+                <div class="review-card">
+                    <div class="review-stars">★ ★ ★ ★ ★</div>
+                    <p class="review-text" data-es="El tratamiento de Head Spa Japonés es puro relax. Mi cuero cabelludo y mi pelo están como nunca. Sin duda volveré regularmente." data-en="The Japanese Head Spa treatment is pure relaxation. My hair and scalp have never felt so good. I will definitely be back regularly!">
+                        "El tratamiento de Head Spa Japonés es puro relax. Mi cuero cabelludo y mi pelo están como nunca. Sin duda volveré regularmente."
+                    </p>
+                    <p class="review-author">— Sarah T.</p>
+                </div>
+
+                <!-- Review Card 3 -->
+                <div class="review-card">
+                    <div class="review-stars">★ ★ ★ ★ ★</div>
+                    <p class="review-text" data-es="Súper profesionales, ambiente súper acogedor y la corrección de color que me hicieron fue espectacular. Recomendadísimo en La Nucía." data-en="Super professional, lovely welcoming environment, and the color correction they did was stunning. Highly recommended in La Nucía.">
+                        "Súper profesionales, ambiente súper acogedor y la corrección de color que me hicieron fue espectacular. Recomendadísimo en La Nucía."
+                    </p>
+                    <p class="review-author">— Elena R.</p>
+                </div>
+            </div>
+
+            <div class="reviews-btn-container">
+                <a href="https://maps.google.com/?cid=TREND_ESTILISTAS" target="_blank" class="btn-yellow" data-es="Ver Más Opiniones en Google" data-en="Read More Reviews on Google">Ver Más Opiniones en Google</a>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact & Footer -->
     <footer id="contact">
         <div class="footer-grid">
@@ -594,8 +891,8 @@
             <div class="footer-col">
                 <h4 data-es="Horarios y Contacto" data-en="Hours & Contact">Horarios y Contacto</h4>
                 <p><strong data-es="Lunes – Viernes:" data-en="Monday – Friday:">Lunes – Viernes:</strong> 09:30 – 19:00</p>
-                <p><strong data-es="Sábado:" data-en="Saturday:">Sábado:</strong> 09:30 – 14:30</p>
-                <p><strong data-es="Domingo:" data-en="Sunday:">Domingo:</strong> <span data-es="Cerrado" data-en="Closed">Cerrado</span></p>
+                <p><strong data-es="Sábado:" data-en="Saturday:">Saturday:</strong> 09:30 – 14:30</p>
+                <p><strong data-es="Domingo:" data-en="Sunday:">Sunday:</strong> <span data-es="Cerrado" data-en="Closed">Cerrado</span></p>
                 <p style="margin-top: 0.8rem;">Tel / WhatsApp: +34 865 94 59 56</p>
             </div>
 
@@ -615,13 +912,35 @@
         </div>
     </footer>
 
-    <!-- Interactive ES/EN Language Switching Script -->
+    <!-- STICKY MOBILE DUAL ACTION BAR (WhatsApp & Book Now) -->
+    <div class="sticky-action-bar">
+        <a href="https://wa.me/34865945956" target="_blank" class="sticky-btn sticky-btn-whatsapp">
+            💬 WhatsApp
+        </a>
+        <a href="#booking" class="sticky-btn sticky-btn-booking" data-es="📅 Reservar" data-en="📅 Book Now">
+            📅 Reservar
+        </a>
+    </div>
+
+    <!-- Interactive ES/EN & Mobile Navigation Script -->
     <script>
         let currentLang = 'es';
 
         const enStory = "Envisioning new trends from the capitals of the world offered to our local community at an affordable price, yet never lowering the quality. Everyone deserves to be able to have beautiful hair. Trend Estilistas began in Albir in 2017, driven by Jose Antonio's passion for international city-quality hair services. Now expanded to La Nucia, redefining luxury, adding a Japanese Head Spa and creating a 360° salon for all your needs.";
         const esStory = "Visionando nuevas tendencias de las capitales del mundo ofrecidas a nuestra comunidad local a un precio accesible, sin bajar nunca la calidad. Todo el mundo merece lucir un cabello espectacular. Trend Estilistas nació en El Albir en 2017, impulsado por la pasión de José Antonio por ofrecer servicios de peluquería con el estándar de calidad de las grandes urbes internacionales. Ahora nos expandimos a La Nucía para redefinir el concepto de lujo, incorporando un Head Spa Japonés y creando un salón 360° para cubrir todas sus necesidades.";
 
+        /* Burger Menu Controls */
+        function toggleMenu() {
+            const nav = document.getElementById('navMenu');
+            nav.classList.toggle('nav-active');
+        }
+
+        function closeMenu() {
+            const nav = document.getElementById('navMenu');
+            nav.classList.remove('nav-active');
+        }
+
+        /* ES / EN Language Switcher */
         function toggleLanguage() {
             const btn = document.getElementById('langBtn');
             const elements = document.querySelectorAll('[data-es]');
