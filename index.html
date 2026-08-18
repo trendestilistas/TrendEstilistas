@@ -1010,5 +1010,28 @@
     });
   }
 </script>
+    <script>
+  let deferredPrompt;
+  const installBtn = document.getElementById('installAppBtn');
+
+  window.addEventListener('beforeinstallprompt', (e) => {
+    // Prevent default Chrome popup and save the event
+    e.preventDefault();
+    deferredPrompt = e;
+    // Show our custom Install button to the user
+    installBtn.style.display = 'block';
+  });
+
+  installBtn.addEventListener('click', () => {
+    if (deferredPrompt) {
+      // Show the official Chrome install prompt
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then((choiceResult) => {
+        installBtn.style.display = 'none';
+        deferredPrompt = null;
+      });
+    }
+  });
+</script>
 </body>
 </html>
