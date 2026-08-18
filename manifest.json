@@ -1,20 +1,20 @@
 {
-  "privacy_policy": "./privacy.html"
   "name": "Trend Estilistas",
   "short_name": "Trend",
-  "description": "Book appointments, view services, and receive special offers.",
+  "description": "Peluquería de Lujo y Head Spa en La Nucía",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#231f20",
-  "theme_color": "#e8c4b8",
+  "background_color": "#121212",
+  "theme_color": "#121212",
+  "orientation": "portrait",
   "icons": [
     {
-      "src": "/icon-192.png",
+      "src": "logo.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/icon-512.png",
+      "src": "logo.png",
       "sizes": "512x512",
       "type": "image/png"
     }
