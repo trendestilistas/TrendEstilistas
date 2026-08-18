@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trend Estilistas | Peluquería de Lujo y Head Spa en La Nucía</title>
+    
+    <!-- PWA & Mobile Web App Meta Tags -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#121212">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Trend">
+    <link rel="apple-touch-icon" href="icon-192.png">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -150,6 +160,8 @@
             letter-spacing: 1px;
             transition: background-color 0.3s, transform 0.2s;
             box-shadow: 0 4px 12px rgba(251, 192, 45, 0.3);
+            border: none;
+            cursor: pointer;
         }
 
         .btn-yellow:hover {
@@ -268,7 +280,7 @@
             max-width: 900px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 3 per row on Desktop */
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
             justify-content: center;
         }
@@ -415,7 +427,7 @@
         footer {
             background-color: #111111;
             color: #e0e0e0;
-            padding: 4rem 1.5rem 6rem; /* Bottom padding for sticky action bar */
+            padding: 4rem 1.5rem 6rem;
         }
 
         .footer-grid {
@@ -470,34 +482,103 @@
             display: none;
         }
 
-        /* ======================================================
-           📱 MOBILE STYLES (Screen widths 768px and below)
-           ====================================================== */
+        /* PWA INSTALL BANNERS STYLES */
+        .pwa-banner {
+            display: none;
+            position: fixed;
+            bottom: 75px; /* Sits cleanly above sticky bar on mobile */
+            left: 15px;
+            right: 15px;
+            background: #ffffff;
+            border: 1px solid var(--accent-yellow);
+            border-left: 5px solid var(--accent-yellow);
+            padding: 1rem 1.2rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+            z-index: 99999;
+            animation: slideUp 0.4s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .pwa-banner-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .pwa-info {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .pwa-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .pwa-text h5 {
+            font-size: 0.95rem;
+            color: #111;
+            font-weight: 700;
+        }
+
+        .pwa-text p {
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 2px;
+            line-height: 1.3;
+        }
+
+        .pwa-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .pwa-btn-install {
+            background-color: var(--accent-yellow);
+            color: #111;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .pwa-btn-close {
+            background: transparent;
+            border: none;
+            color: #888;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0 5px;
+        }
+
+        .ios-share-icon {
+            display: inline-block;
+            background: #f0f0f0;
+            padding: 1px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        /* MOBILE RESPONSIVE ADJUSTMENTS */
         @media (max-width: 768px) {
-
-            /* Body Readability */
-            body {
-                font-size: 1.05rem;
-            }
-
-            .section {
-                padding: 3rem 1.2rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-                margin-bottom: 2rem;
-            }
-
-            /* Header & Burger Menu */
-            header {
-                padding: 0.8rem 1.2rem;
-            }
-
-            .burger-btn {
-                display: block;
-            }
-
+            body { font-size: 1.05rem; }
+            .section { padding: 3rem 1.2rem; }
+            .section-title { font-size: 2rem; margin-bottom: 2rem; }
+            header { padding: 0.8rem 1.2rem; }
+            .burger-btn { display: block; }
             nav {
                 display: none;
                 flex-direction: column;
@@ -511,106 +592,27 @@
                 box-shadow: 0 10px 20px rgba(0,0,0,0.3);
                 border-top: 1px solid #222;
             }
-
-            nav.nav-active {
-                display: flex;
-            }
-
-            nav a {
-                font-size: 1.1rem;
-                width: 100%;
-                text-align: center;
-            }
-
-            /* 1. Hero Section */
-            .hero {
-                min-height: auto;
-                padding: 2.5rem 1rem;
-                background-position: center top;
-            }
-
-            .hero-content {
-                padding: 1.5rem 1.2rem;
-            }
-
-            .hero-content h1 {
-                font-size: 2.2rem;
-                margin-bottom: 1rem;
-            }
-
-            .story-text {
-                font-size: 1.15rem;
-                line-height: 1.7;
-                margin-bottom: 1.5rem;
-            }
-
-            /* 2. Experiences: Single Column */
-            .grid-2 {
-                grid-template-columns: 1fr;
-                gap: 1.8rem;
-            }
-
-            .card-body h3 {
-                font-size: 1.6rem;
-            }
-
-            .card-body p {
-                font-size: 1.05rem;
-            }
-
-            /* 3. Pricing: Single Column */
-            .price-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
-            .price-card {
-                padding: 1.2rem;
-            }
-
-            .price-card .service-name {
-                font-size: 1.05rem;
-            }
-
-            .price-card .service-price {
-                font-size: 1.15rem;
-            }
-
-            /* 4. Team Section: STRICTLY 2 STAFF PER LINE (3 rows of 2) */
-            .team-grid {
-                grid-template-columns: repeat(2, 1fr) !important;
-                gap: 1rem;
-            }
-
-            .team-card {
-                padding: 1.2rem 0.5rem;
-            }
-
-            .team-card img {
-                width: 95px;
-                height: 95px;
-            }
-
-            .team-card h4 {
-                font-size: 1.1rem;
-            }
-
-            .team-card p {
-                font-size: 0.85rem;
-            }
-
-            /* 5. Reviews: Single Column */
-            .reviews-grid {
-                grid-template-columns: 1fr;
-                gap: 1.2rem;
-            }
-
-            .review-text {
-                font-size: 1.05rem;
-                line-height: 1.7;
-            }
-
-            /* 6. Sticky Mobile Action Bar */
+            nav.nav-active { display: flex; }
+            nav a { font-size: 1.1rem; width: 100%; text-align: center; }
+            .hero { min-height: auto; padding: 2.5rem 1rem; background-position: center top; }
+            .hero-content { padding: 1.5rem 1.2rem; }
+            .hero-content h1 { font-size: 2.2rem; margin-bottom: 1rem; }
+            .story-text { font-size: 1.15rem; line-height: 1.7; margin-bottom: 1.5rem; }
+            .grid-2 { grid-template-columns: 1fr; gap: 1.8rem; }
+            .card-body h3 { font-size: 1.6rem; }
+            .card-body p { font-size: 1.05rem; }
+            .price-grid { grid-template-columns: 1fr; gap: 1rem; }
+            .price-card { padding: 1.2rem; }
+            .price-card .service-name { font-size: 1.05rem; }
+            .price-card .service-price { font-size: 1.15rem; }
+            .team-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 1rem; }
+            .team-card { padding: 1.2rem 0.5rem; }
+            .team-card img { width: 95px; height: 95px; }
+            .team-card h4 { font-size: 1.1rem; }
+            .team-card p { font-size: 0.85rem; }
+            .reviews-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+            .review-text { font-size: 1.05rem; line-height: 1.7; }
+            
             .sticky-action-bar {
                 display: flex;
                 position: fixed;
@@ -622,7 +624,6 @@
                 border-top: 2px solid var(--accent-yellow);
                 box-shadow: 0 -5px 15px rgba(0,0,0,0.2);
             }
-
             .sticky-btn {
                 flex: 1;
                 display: flex;
@@ -636,13 +637,11 @@
                 text-transform: uppercase;
                 letter-spacing: 0.5px;
             }
-
             .sticky-btn-whatsapp {
                 background-color: #25d366;
                 color: #000000;
                 border-right: 1px solid rgba(0,0,0,0.1);
             }
-
             .sticky-btn-booking {
                 background-color: var(--accent-yellow);
                 color: #111111;
@@ -764,7 +763,7 @@
         </section>
     </div>
 
-    <!-- Meet the Team (Strictly 2 per row on Mobile, 3 on Desktop) -->
+    <!-- Meet the Team -->
     <section class="section" id="team">
         <h2 class="section-title" data-es="Conozca a Nuestro Equipo" data-en="Meet Our Team">Conozca a Nuestro Equipo</h2>
         
@@ -877,59 +876,81 @@
         </div>
     </section>
 
-    <!-- Contact & Footer -->
-    <footer id="contact">
+    <!-- Footer -->
+    <footer>
         <div class="footer-grid">
-            
             <div class="footer-col">
-                <h4 data-es="Visítenos" data-en="Visit Us">Visítenos</h4>
-                <p>Trend Estilistas</p>
-                <p>Urb Balconet, Passeig Pla de Garaita 25</p>
-                <p>Local 13 y 14, 03530 La Nucía, Alicante</p>
+                <h4>Trend Estilistas</h4>
+                <p style="font-size: 0.9rem; color: #aaa; margin-bottom: 1rem;">
+                    Peluquería de Lujo & Head Spa Japonés en La Nucía y El Albir.
+                </p>
             </div>
-
             <div class="footer-col">
-                <h4 data-es="Horarios y Contacto" data-en="Hours & Contact">Horarios y Contacto</h4>
-                <p><strong data-es="Lunes – Viernes:" data-en="Monday – Friday:">Lunes – Viernes:</strong> 09:30 – 19:00</p>
-                <p><strong data-es="Sábado:" data-en="Saturday:">Saturday:</strong> 09:30 – 14:30</p>
-                <p><strong data-es="Domingo:" data-en="Sunday:">Sunday:</strong> <span data-es="Cerrado" data-en="Closed">Cerrado</span></p>
-                <p style="margin-top: 0.8rem;">Tel / WhatsApp: +34 865 94 59 56</p>
+                <h4 data-es="Contacto & Ubicación" data-en="Contact & Location">Contacto & Ubicación</h4>
+                <p style="font-size: 0.9rem; color: #aaa;">📍 La Nucía, Alicante, España</p>
+                <p style="font-size: 0.9rem; color: #aaa; margin-top: 0.5rem;">📞 +34 600 000 000</p>
             </div>
-
             <div class="footer-col">
-                <h4 data-es="Síganos" data-en="Follow Us">Síganos</h4>
+                <h4 data-es="Síguenos" data-en="Follow Us">Síguenos</h4>
                 <div class="social-buttons">
-                    <a href="https://wa.me/34865945956" target="_blank" class="btn-social btn-whatsapp">WhatsApp</a>
-                    <a href="https://www.instagram.com/trend_estilistas/" target="_blank" class="btn-social btn-instagram">Instagram</a>
-                    <a href="https://www.facebook.com/profile.php?id=100063550147983" target="_blank" class="btn-social btn-facebook">Facebook</a>
+                    <a href="https://instagram.com" target="_blank" class="btn-social btn-instagram">Instagram</a>
+                    <a href="https://facebook.com" target="_blank" class="btn-social btn-facebook">Facebook</a>
+                    <a href="https://wa.me/34600000000" target="_blank" class="btn-social btn-whatsapp">WhatsApp</a>
                 </div>
             </div>
-
         </div>
-
         <div class="copyright">
-            &copy; 2026 Trend Estilistas. <span data-es="Todos los derechos reservados." data-en="All rights reserved.">Todos los derechos reservados.</span>
+            <p>&copy; Trend Estilistas. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <!-- STICKY MOBILE DUAL ACTION BAR (WhatsApp & Book Now) -->
+    <!-- STICKY MOBILE ACTION BAR -->
     <div class="sticky-action-bar">
-        <a href="https://wa.me/34865945956" target="_blank" class="sticky-btn sticky-btn-whatsapp">
+        <a href="https://wa.me/34600000000" class="sticky-btn sticky-btn-whatsapp" target="_blank">
             💬 WhatsApp
         </a>
-        <a href="#booking" class="sticky-btn sticky-btn-booking" data-es="📅 Reservar" data-en="📅 Book Now">
+        <a href="#booking" class="sticky-btn sticky-btn-booking" data-es="Reservar" data-en="Book Now">
             📅 Reservar
         </a>
     </div>
 
-    <!-- Interactive ES/EN & Mobile Navigation Script -->
+    <!-- PWA INSTALL POPUP BANNERS -->
+    <!-- Android Install Prompt -->
+    <div id="pwa-android-banner" class="pwa-banner">
+        <div class="pwa-banner-content">
+            <div class="pwa-info">
+                <img src="logo.png" alt="Trend App" class="pwa-icon">
+                <div class="pwa-text">
+                    <h5 data-es="Instalar Trend App" data-en="Install Trend App">Instalar Trend App</h5>
+                    <p data-es="Acceso rápido a reservas y ofertas" data-en="Quick access & special offers">Acceso rápido a reservas y ofertas</p>
+                </div>
+            </div>
+            <div class="pwa-actions">
+                <button id="pwa-install-btn" class="pwa-btn-install" data-es="Instalar" data-en="Install">Instalar</button>
+                <button onclick="dismissBanner('pwa-android-banner')" class="pwa-btn-close">✕</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- iOS Install Guidance Banner -->
+    <div id="pwa-ios-banner" class="pwa-banner">
+        <div class="pwa-banner-content">
+            <div class="pwa-info">
+                <img src="logo.png" alt="Trend App" class="pwa-icon">
+                <div class="pwa-text">
+                    <h5 data-es="Instala la App en tu iPhone" data-en="Install App on iPhone">Instala la App en tu iPhone</h5>
+                    <p data-es="Pulsa <span class='ios-share-icon'>⎋</span> 'Compartir' y luego 'Añadir a la pantalla de inicio'" data-en="Tap <span class='ios-share-icon'>⎋</span> 'Share' then 'Add to Home Screen'">Pulsa <span class="ios-share-icon">⎋</span> 'Compartir' y luego 'Añadir a la pantalla de inicio'</p>
+                </div>
+            </div>
+            <div class="pwa-actions">
+                <button onclick="dismissBanner('pwa-ios-banner')" class="pwa-btn-close">✕</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
     <script>
-        let currentLang = 'es';
-
-        const enStory = "Envisioning new trends from the capitals of the world offered to our local community at an affordable price, yet never lowering the quality. Everyone deserves to be able to have beautiful hair. Trend Estilistas began in Albir in 2017, driven by Jose Antonio's passion for international city-quality hair services. Now expanded to La Nucia, redefining luxury, adding a Japanese Head Spa and creating a 360° salon for all your needs.";
-        const esStory = "Visionando nuevas tendencias de las capitales del mundo ofrecidas a nuestra comunidad local a un precio accesible, sin bajar nunca la calidad. Todo el mundo merece lucir un cabello espectacular. Trend Estilistas nació en El Albir en 2017, impulsado por la pasión de José Antonio por ofrecer servicios de peluquería con el estándar de calidad de las grandes urbes internacionales. Ahora nos expandimos a La Nucía para redefinir el concepto de lujo, incorporando un Head Spa Japonés y creando un salón 360° para cubrir todas sus necesidades.";
-
-        /* Burger Menu Controls */
+        // Toggle Mobile Menu
         function toggleMenu() {
             const nav = document.getElementById('navMenu');
             nav.classList.toggle('nav-active');
@@ -940,56 +961,81 @@
             nav.classList.remove('nav-active');
         }
 
-        /* ES / EN Language Switcher */
+        // Toggle Language (ES / EN)
+        let currentLang = 'es';
         function toggleLanguage() {
-            const btn = document.getElementById('langBtn');
-            const elements = document.querySelectorAll('[data-es]');
-            const storyText = document.getElementById('heroStory');
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            document.getElementById('langBtn').innerText = currentLang === 'es' ? 'EN' : 'ES';
 
-            if (currentLang === 'es') {
-                currentLang = 'en';
-                btn.textContent = 'ES';
-                storyText.textContent = enStory;
-
-                // Update "desde" to "from" for prices
-                document.getElementById('price-peinado').textContent = 'from 22,00 €';
-                document.getElementById('price-color').textContent = 'from 38,00 €';
-                document.getElementById('price-balayage').textContent = 'from 130,00 €';
-                document.getElementById('price-olaplex').textContent = 'from 40,00 €';
-
-                elements.forEach(el => {
-                    if (el.getAttribute('data-en')) {
-                        el.textContent = el.getAttribute('data-en');
+            const elements = document.querySelectorAll('[data-es][data-en]');
+            elements.forEach(el => {
+                const text = el.getAttribute(`data-${currentLang}`);
+                if (text) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = text;
+                    } else {
+                        el.innerHTML = text;
                     }
-                });
-            } else {
-                currentLang = 'es';
-                btn.textContent = 'EN';
-                storyText.textContent = esStory;
+                }
+            });
+        }
 
-                // Revert "from" to "desde" for prices
-                document.getElementById('price-peinado').textContent = 'desde 22,00 €';
-                document.getElementById('price-color').textContent = 'desde 38,00 €';
-                document.getElementById('price-balayage').textContent = 'desde 130,00 €';
-                document.getElementById('price-olaplex').textContent = 'desde 40,00 €';
+        // Register Service Worker for PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(reg => console.log('Service Worker Registrado!', reg))
+                    .catch(err => console.error('Error Service Worker:', err));
+            });
+        }
 
-                elements.forEach(el => {
-                    if (el.getAttribute('data-es')) {
-                        el.textContent = el.getAttribute('data-es');
-                    }
-                });
+        // PWA Install Prompt Logic
+        let deferredPrompt;
+        const androidBanner = document.getElementById('pwa-android-banner');
+        const iosBanner = document.getElementById('pwa-ios-banner');
+        const installBtn = document.getElementById('pwa-install-btn');
+
+        // Check if already installed or dismissed recently
+        const isStandalone = window.navigator.standalone || window.matchMedia('(display-mode: standalone)').matches;
+        const isBannerDismissed = localStorage.getItem('pwa_banner_dismissed');
+
+        if (!isStandalone && !isBannerDismissed) {
+            // 1. Android / Chrome Install Prompt
+            window.addEventListener('beforeinstallprompt', (e) => {
+                e.preventDefault();
+                deferredPrompt = e;
+                androidBanner.style.display = 'block';
+            });
+
+            // 2. iOS Safari Custom Guidance
+            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+            if (isIOS) {
+                // Show iOS banner after 3 seconds delay for better UX
+                setTimeout(() => {
+                    iosBanner.style.display = 'block';
+                }, 3000);
             }
         }
-    </script>
 
-    <!-- Behold Widget External Loader Script -->
-    <script>
-        (() => {
-            if(window.__bhldScript)return;window.__bhldScript=true;
-            const d=document,s=d.createElement("script");s.type="module";
-            s.src="https://w.behold.so/widget.js";setTimeout(()=>{d.head.append(s);},0);
-        })();
-    </script>
+        // Android Install Button Click Event
+        if (installBtn) {
+            installBtn.addEventListener('click', async () => {
+                if (deferredPrompt) {
+                    deferredPrompt.prompt();
+                    const { outcome } = await deferredPrompt.userChoice;
+                    console.log('User response:', outcome);
+                    deferredPrompt = null;
+                    androidBanner.style.display = 'none';
+                }
+            });
+        }
 
+        // Dismiss Banner Helper
+        function dismissBanner(bannerId) {
+            document.getElementById(bannerId).style.display = 'none';
+            // Remember dismissal for 7 days
+            localStorage.setItem('pwa_banner_dismissed', 'true');
+        }
+    </script>
 </body>
 </html>
